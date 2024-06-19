@@ -10,6 +10,8 @@
 import os
 import zipfile
 import pandas as pd
+import utils
+import constants
 
 # Assign raw and clean directories
 raw_zipped_directory = '../raw'
@@ -18,12 +20,6 @@ clean_directory = '../clean'
 # Initialize a list that will be used to collect each years dataframe and the output filename
 output_dataframes = []
 output_filename = clean_directory + '/INJURY_CLEANED.csv'
-
-# Initialize the maps to convert AIS and body region from numbers to their descriptors
-ais_map = {1: 'Minor Injury', 2: 'Moderate Injury', 3: 'Serious Injury', 4: 'Severe Injury', 5: 'Critical Injury',
-           6: 'Maximum Injury', 9: 'Injured, Unknown Severity'}
-region_map = {0: 'Other Trauma', 1: 'Head', 2: 'Face', 3: 'Neck', 4: 'Thorax', 5: 'Abdomen', 6: 'Spine',
-              7: 'Upper Extremity', 8: 'Lower Extremity', 9: 'Unspecified'}
 
 
 def clean_ciss():
@@ -34,8 +30,8 @@ def clean_ciss():
             # The filenames are not standard in CISS, so we will check the filepath for each year and open the injury
             # and localizer files
             filenames = z.namelist()
-            path_to_injury_csv = get_file_path('INJURY', filenames)
-            path_to_localizer_csv = get_file_path('LOCALIZER', filenames)
+            path_to_injury_csv = utils.get_file_path('INJURY', filenames)
+            path_to_localizer_csv = utils.get_file_path('LOCALIZER', filenames)
             with z.open(path_to_injury_csv) as f:
                 with z.open(path_to_localizer_csv) as g:
                     # Filter to the columns we will use from the localizer table
@@ -49,8 +45,7 @@ def clean_ciss():
                     injury_cleaned = injury.filter(
                         ['CASEID', 'CASENO', 'VEHNO', 'OCCNO', 'INJNO', 'AIS', 'REGION', 'STRUTYPE', 'STRUSPEC',
                          'INJLEVEL'])
-                    injury_cleaned['AIS'] = injury_cleaned['AIS'].replace(ais_map)
-                    injury_cleaned['REGION'] = injury_cleaned['REGION'].replace(region_map)
+                    utils.clean_column_values(injury_cleaned, constants.injury_column_maps)
 
                     # Join the injury and localizer tables and add the dataframe to the output_dataframes list
                     injury_joined = pd.merge(injury_cleaned, localizer_cleaned, how='left',
@@ -60,12 +55,6 @@ def clean_ciss():
     # Combine each year's dataframe and write the combined dataframe to a new file
     final_df = pd.concat(output_dataframes)
     final_df.to_csv(output_filename, encoding='utf-8', index=False)
-
-
-def get_file_path(substring, filenames):
-    for name in filenames:
-        if substring.upper() in name.upper():
-            return name
 
 
 clean_ciss()
