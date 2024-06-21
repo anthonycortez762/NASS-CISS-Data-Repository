@@ -6,55 +6,21 @@
     - Users are cautioned that ASPECT90 does not easily map to L1. Users should use caution when comparing. (pg. 515 in Crash Investigation Sampling System, 2021 Analytical User’s Manual)
 """
 
-# Import required modules
-import os
-import zipfile
-import pandas as pd
+# Import injury constants and functions
 import utils
 import constants
 
 # Assign raw and clean directories
-raw_zipped_directory = '../raw'
-clean_directory = '../clean'
+injury_raw_zipped_directory = '../raw'
+injury_clean_directory = '../clean'
 
-# Initialize a list that will be used to collect each years dataframe and the output filename
-output_dataframes = []
-output_filename = clean_directory + '/INJURY_CLEANED.csv'
+# Setting injury, localizer and output filenames
+injury_filename = 'INJURY'
+localizer_filename = 'LOCALIZER'
+output_filename = injury_clean_directory + '/INJURY_CLEANED.csv'
 
-
-def clean_ciss():
-    # Iterate over each zip file in the raw directory
-    for filename in os.listdir(raw_zipped_directory):
-        f = os.path.join(raw_zipped_directory, filename)
-        with zipfile.ZipFile(f, 'r') as z:
-            # The filenames are not standard in CISS, so we will check the filepath for each year and open the injury
-            # and localizer files
-            filenames = z.namelist()
-            path_to_injury_csv = utils.get_file_path('INJURY', filenames)
-            path_to_localizer_csv = utils.get_file_path('LOCALIZER', filenames)
-            with z.open(path_to_injury_csv) as f:
-                with z.open(path_to_localizer_csv) as g:
-                    # Filter to the columns we will use from the localizer table
-                    localizer = pd.read_csv(g)
-                    localizer_cleaned = localizer.filter(
-                        ['CASEID', 'CASENO', 'VEHNO', 'OCCNO', 'INJNO', 'L1', 'L2', 'LDEF'])
-
-                    # Filter to columns we will use from the injury table and convert the AIS and REGION columns to
-                    # their descriptors
-                    injury = pd.read_csv(f)
-                    injury_cleaned = injury.filter(
-                        ['CASEID', 'CASENO', 'VEHNO', 'OCCNO', 'INJNO', 'AIS', 'REGION', 'STRUTYPE', 'STRUSPEC',
-                         'INJLEVEL'])
-                    utils.clean_column_values(injury_cleaned, constants.injury_column_maps)
-
-                    # Join the injury and localizer tables and add the dataframe to the output_dataframes list
-                    injury_joined = pd.merge(injury_cleaned, localizer_cleaned, how='left',
-                                             on=['CASEID', 'CASENO', 'VEHNO', 'OCCNO', 'INJNO'])
-                    output_dataframes.append(injury_joined)
-
-    # Combine each year's dataframe and write the combined dataframe to a new file
-    final_df = pd.concat(output_dataframes)
-    final_df.to_csv(output_filename, encoding='utf-8', index=False)
-
-
-clean_ciss()
+# Using the clean_zip_files function to join the injury and localizer files for each year in CISS
+# and then union each years file into an injury dataset
+utils.clean_zip_files(injury_raw_zipped_directory, injury_filename, localizer_filename,
+                      constants.injury_join_columns, constants.injury_output_columns,
+                      constants.injury_column_maps, output_filename)

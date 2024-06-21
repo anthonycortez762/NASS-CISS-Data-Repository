@@ -1,4 +1,7 @@
 # Injury Constants
+injury_join_columns = ['CASEID', 'CASENO', 'VEHNO', 'OCCNO', 'INJNO']
+injury_output_columns = ['CASEID', 'CASENO', 'VEHNO', 'OCCNO', 'INJNO', 'AIS', 'REGION', 'STRUTYPE', 'STRUSPEC',
+                         'INJLEVEL', 'L1', 'L2', 'LDEF']
 injury_column_maps = {
     'AIS': {1: 'Minor Injury', 2: 'Moderate Injury', 3: 'Serious Injury', 4: 'Severe Injury', 5: 'Critical Injury',
             6: 'Maximum Injury', 9: 'Injured, Unknown Severity'},
@@ -7,6 +10,11 @@ injury_column_maps = {
 }
 
 # Patient Constants
+patient_join_columns = ['CASEID', 'PSU', 'CASENO', 'VEHNO', 'OCCNO']
+patient_output_columns = ['CASEID', 'OCCNO', 'VEHNO', 'AGE', 'SEX', 'HEIGHT', 'WEIGHT', 'ROLE', 'PARBELTUSE',
+                          'PARAIRBAG', 'SEATLOC', 'ENTRAP', 'EYEWEAR', 'HOSPSTAY', 'MOBILITY', 'MORTALITY', 'TREATMENT',
+                          'EJECTTYPE']
+
 patient_column_maps = {
     'AGE': {0: 'Less than 1 year old', 999: 'Unknown'},
     'SEX': {1: 'Male', 2: 'Female', 3: 'Female, pregnant - 1st trimester (1st-3rd month)',
