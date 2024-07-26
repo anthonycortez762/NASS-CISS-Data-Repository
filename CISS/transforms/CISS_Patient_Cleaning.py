@@ -1,6 +1,6 @@
 # Import patient constants and functions
-import utils
-import constants
+import CISS_Utils
+import CISS_Constants
 
 # Assign raw and clean directories
 patient_raw_zipped_directory = '../raw'
@@ -13,6 +13,6 @@ output_filename = patient_clean_directory + '/PATIENT_CLEANED.csv'
 
 # Using the clean_zip_files function to join the occupant and eject files for each year in CISS
 # and then union each years file into a patient dataset
-utils.clean_zip_files(patient_raw_zipped_directory, occupant_filename, eject_filename,
-                      constants.patient_join_columns, constants.patient_output_columns,
-                      constants.patient_column_maps, output_filename)
+CISS_Utils.clean_zip_files(patient_raw_zipped_directory, occupant_filename, eject_filename,
+                           CISS_Constants.patient_join_columns, CISS_Constants.patient_output_columns,
+                           CISS_Constants.ciss_patient_col_specific_value_maps, output_filename)

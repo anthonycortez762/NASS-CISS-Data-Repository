@@ -1,3 +1,5 @@
+import Global_Constants
+
 soudat_shared_mapping = {'1': 'Autopsy Records', '2': 'Medical or Hospital Records', '3': 'Treating Physician',
                          '4': 'Interviewee', '5': 'EMS Personnel', '6': 'Police', '7': 'Other source', '9': 'Unknown'}
 
@@ -6,9 +8,8 @@ nass_injury_col_specific_value_maps = {'AIS': [
         'ranges': [
             {'start': 1979, 'end': 1987},
         ],
-        'mapping': {'0': 'Not Injured', '1': 'Minor Injury', '2': 'Moderate Injury', '3': 'Severe Injury',
-                    '4': 'Serious Injury', '5': 'Critical Injury', '6': 'Maximum Injury',
-                    '7': 'Injury, Unknown Severity', '9': 'Unknown if injured'},
+        'mapping': {'0': 'Not Injured', '3': 'Severe Injury', '4': 'Serious Injury', '7': 'Injury, Unknown Severity',
+                    '9': 'Unknown if injured'} | Global_Constants.ais_shared_mapping
     }
 ], 'ASPECT': [
     {

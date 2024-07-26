@@ -1,3 +1,5 @@
+import Global_Constants
+
 nass_patient_col_specific_value_maps = {
     'AGE': [
         {
@@ -12,7 +14,7 @@ nass_patient_col_specific_value_maps = {
             'ranges': [
                 {'start': 1979, 'end': 1987},
             ],
-            'mapping': {'1': 'Male', '2': 'Female', '9': 'Unknown'},
+            'mapping': Global_Constants.sex_shared_mapping,
         }
     ],
     'HEIGHT': [
@@ -28,7 +30,7 @@ nass_patient_col_specific_value_maps = {
             'ranges': [
                 {'start': 1979, 'end': 1987},
             ],
-            'mapping': {'999': 'Unknown'},
+            'mapping': Global_Constants.weight_shared_mapping,
         }
     ],
     'ROLE': [
@@ -36,7 +38,7 @@ nass_patient_col_specific_value_maps = {
             'ranges': [
                 {'start': 1979, 'end': 1987},
             ],
-            'mapping': {'1': 'Driver', '2': 'Passenger', '9': 'Unknown'},
+            'mapping': Global_Constants.role_shared_mapping,
         }
     ],
     'SEATPOS': [
@@ -63,7 +65,7 @@ nass_patient_col_specific_value_maps = {
             'ranges': [
                 {'start': 1980, 'end': 1987},
             ],
-            'mapping': {'0': 'Not entrapped', '1': 'Entrapped', '9': 'Unknown'},
+            'mapping': Global_Constants.entrapped_shared_mapping
         }
     ],
     'EJECTION': [
@@ -78,8 +80,7 @@ nass_patient_col_specific_value_maps = {
             'ranges': [
                 {'start': 1980, 'end': 1987},
             ],
-            'mapping': {'0': 'None', '1': 'Complete ejection', '2': 'Partial ejection', '3': 'Ejection, unknown degree',
-                        '9': 'Unknown'},
+            'mapping': Global_Constants.ejection_shared_mapping
         }
     ],
     'TREATMNT': [
@@ -101,9 +102,9 @@ nass_patient_col_specific_value_maps = {
             'ranges': [
                 {'start': 1985, 'end': 1987},
             ],
-            'mapping': {'0': 'No treatment', '1': 'Fatal', '2': 'Fatal - ruled disease Nonfatal', '3': 'Hospitalization'
-                        ,'4': 'Transported and released', '5': 'Treatment at scene - nontransported',
-                        '6': 'Treatment later', '8': 'Treatment-other', '9': 'Unknown'},
+            'mapping': {'1': 'Fatal', '2': 'Fatal - ruled disease Nonfatal','4': 'Transported and released',
+                        '5': 'Treatment at scene - nontransported', '6': 'Treatment later'
+                        } | Global_Constants.treatment_shared_mapping,
         },
     ],
     'HOSPSTAY': [
@@ -117,7 +118,7 @@ nass_patient_col_specific_value_maps = {
             'ranges': [
                 {'start': 1982, 'end': 1987},
             ],
-            'mapping': {'61': '61 days or more', '99': 'Unknown'},
+            'mapping': Global_Constants.hospstay_shared_mapping,
         }
     ],
     'MANUSE': [
@@ -125,7 +126,7 @@ nass_patient_col_specific_value_maps = {
             'ranges': [
                 {'start': 1979, 'end': 1979},
             ],
-            'mapping': {'1': 'None (includes unavailability)', '2': 'Lap belt and shoulder belt', '3': 'Lap belt',
+            'mapping': {'1': 'None (includes unavailability)', '2': 'Lap and shoulder belt', '3': 'Lap belt',
                         '4': 'Shoulder harness', '5': 'Helmet', '6': 'Child safety seat - in proper use',
                         '7': 'Other restraint used', '9': 'Unknown'},
         },
@@ -133,18 +134,16 @@ nass_patient_col_specific_value_maps = {
             'ranges': [
                 {'start': 1980, 'end': 1981},
             ],
-            'mapping': {'0': 'None used - vehicle occupant', '1': 'Shoulder belt', '2': 'Lap belt',
-                        '3': 'Lap belt and shoulder belt', '4': 'Child safety seat - in proper use', '5': 'Helmet',
-                        '8': 'Other restraint used', '9': 'Unknown'},
+            'mapping': {'4': 'Child safety seat - in proper use', '5': 'Helmet', '8': 'Other restraint used',
+                        '9': 'Unknown'} | Global_Constants.belt_use_shared_mapping,
         },
         {
             'ranges': [
                 {'start': 1982, 'end': 1987},
             ],
-            'mapping': {'0': 'None used - vehicle occupant', '1': 'Shoulder belt', '2': 'Lap belt',
-                        '3': 'Lap belt and shoulder belt', '4': 'Helmet', '5': 'Child safety seat - in proper use',
+            'mapping': {'4': 'Helmet', '5': 'Child safety seat - in proper use',
                         '6': 'Child safety seat - used improperly', '7': 'Child safety seat - unknown if used properly',
-                        '8': 'Other restraint used', '9': 'Unknown'},
+                        '8': 'Other restraint used', '9': 'Unknown'} | Global_Constants.belt_use_shared_mapping,
         },
     ],
     'AUTFNCT': [
