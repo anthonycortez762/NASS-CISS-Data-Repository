@@ -51,7 +51,7 @@ nass_patient_col_specific_value_maps = {
                         '7': 'Third seat-left side', '8': 'Third seat-middle', '9': 'Third seat-right side',
                         '10': 'Front seat-additional passenger', '11': 'Second seat or beyond-additional passenger',
                         '12': 'Truck-tractor sleeping section', '13': 'Other enclosed area',
-                        '14': 'In or on Unenclosed area', '15': 'In or on trailing unit', '99': 'Unknown'},
+                        '14': 'In or on unenclosed area', '15': 'In or on trailing unit', '99': 'Unknown'},
         }
     ],
     'ENTRAP': [
@@ -102,7 +102,7 @@ nass_patient_col_specific_value_maps = {
             'ranges': [
                 {'start': 1985, 'end': 1987},
             ],
-            'mapping': {'1': 'Fatal', '2': 'Fatal - ruled disease Nonfatal','4': 'Transported and released',
+            'mapping': {'1': 'Fatal', '2': 'Fatal - ruled disease nonfatal', '4': 'Transported and released',
                         '5': 'Treatment at scene - nontransported', '6': 'Treatment later'
                         } | Global_Constants.treatment_shared_mapping,
         },
@@ -151,7 +151,7 @@ nass_patient_col_specific_value_maps = {
             'ranges': [
                 {'start': 1979, 'end': 1979},
             ],
-            'mapping': {'1': 'None Available', '2': 'Air bag - deployed', '3': 'Air bag - did not deploy',
+            'mapping': {'1': 'None available', '2': 'Air bag - deployed', '3': 'Air bag - did not deploy',
                         '4': 'Passive belt', '5': 'Other restraint', '9': 'Unknown'},
         },
         {

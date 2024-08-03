@@ -37,7 +37,7 @@ ciss_patient_col_specific_value_maps = {
     'SEATLOC': [
         {
             'ranges': Global_Constants.common_ciss_year_range,
-            'mapping': {'11': 'Front Left', '12': 'Front middle', '13': 'Front right', '14': 'Front other',
+            'mapping': {'11': 'Front left', '12': 'Front middle', '13': 'Front right', '14': 'Front other',
                         '21': 'Second left', '22': 'Second middle', '23': 'Second right', '24': 'Second other',
                         '31': 'Third left', '32': 'Third middle', '33': 'Third right', '34': 'Third other',
                         '41': 'Fourth left', '42': 'Fourth middle', '43': 'Fourth right', '44': 'Fourth other',
@@ -63,7 +63,7 @@ ciss_patient_col_specific_value_maps = {
         {
             'ranges': Global_Constants.common_ciss_year_range,
             'mapping': {'1': 'Treatment at scene - non-transported', '2': 'Transported and released',
-                        '4': 'Dead on Arrival (DOA) at hospital', '5': 'Dead Prior To Admission',
+                        '4': 'Dead on arrival (DOA) at hospital', '5': 'Dead prior to admission',
                         '6': 'Transported to a medical facility - unknown if treated', '7': 'Treatment later'
                         } | Global_Constants.treatment_shared_mapping
         }
@@ -77,7 +77,7 @@ ciss_patient_col_specific_value_maps = {
     'MORTALITY': [
         {
             'ranges': Global_Constants.common_ciss_year_range,
-            'mapping': {'0': 'Not Fatal', '1': 'Fatal', '2': 'Fatal — ruled disease (specify)'}
+            'mapping': {'0': 'Not fatal', '1': 'Fatal', '2': 'Fatal — ruled disease (specify)'}
         }
     ],
     'EYEWEAR': [
@@ -100,15 +100,15 @@ ciss_patient_col_specific_value_maps = {
     'PARAIRBAG': [
         {
             'ranges': Global_Constants.common_ciss_year_range,
-            'mapping': {'0': 'No Air Bag Available', '1': 'Deployed', '2': 'Not Deployed', '3': 'Unknown if deployed',
-                        '7': 'Not Reported', '9': 'Police indicated "Unknown"'}
+            'mapping': {'0': 'No air bag available', '1': 'Deployed', '2': 'Not deployed', '3': 'Unknown if deployed',
+                        '7': 'Not reported', '9': 'Police indicated "unknown"'}
         }
     ],
     'PARBELTUSE': [
         {
             'ranges': Global_Constants.common_ciss_year_range,
             'mapping': {'4': 'Belt used, type not specified', '5': 'Child safety seat', '6': 'Automatic belt',
-                        '7': 'Other type belt (specify)', '8': 'Police indicated "unknown"', '9': 'Not Reported'
+                        '7': 'Other type belt (specify)', '8': 'Police indicated "unknown"', '9': 'Not reported'
                         } | Global_Constants.belt_use_shared_mapping
         }
     ]
