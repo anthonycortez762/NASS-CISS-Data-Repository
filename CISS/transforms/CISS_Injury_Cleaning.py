@@ -7,8 +7,8 @@
 """
 
 # Import injury constants and functions
-import utils
-import constants
+import CISS_Utils
+import CISS_Constants
 
 # Assign raw and clean directories
 injury_raw_zipped_directory = '../raw'
@@ -21,6 +21,6 @@ output_filename = injury_clean_directory + '/INJURY_CLEANED.csv'
 
 # Using the clean_zip_files function to join the injury and localizer files for each year in CISS
 # and then union each years file into an injury dataset
-utils.clean_zip_files(injury_raw_zipped_directory, injury_filename, localizer_filename,
-                      constants.injury_join_columns, constants.injury_output_columns,
-                      constants.injury_column_maps, output_filename)
+CISS_Utils.clean_zip_files(injury_raw_zipped_directory, injury_filename, localizer_filename,
+                           CISS_Constants.injury_join_columns, CISS_Constants.injury_output_columns,
+                           CISS_Constants.ciss_injury_col_specific_value_maps, output_filename)

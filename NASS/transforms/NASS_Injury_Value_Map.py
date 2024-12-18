@@ -1,3 +1,5 @@
+import Global_Constants
+
 soudat_shared_mapping = {'1': 'Autopsy Records', '2': 'Medical or Hospital Records', '3': 'Treating Physician',
                          '4': 'Interviewee', '5': 'EMS Personnel', '6': 'Police', '7': 'Other source', '9': 'Unknown'}
 
@@ -6,9 +8,8 @@ nass_injury_col_specific_value_maps = {'AIS': [
         'ranges': [
             {'start': 1979, 'end': 1987},
         ],
-        'mapping': {'0': 'Not Injured', '1': 'Minor Injury', '2': 'Moderate Injury', '3': 'Severe Injury',
-                    '4': 'Serious Injury', '5': 'Critical Injury', '6': 'Maximum Injury',
-                    '7': 'Injury, Unknown Severity', '9': 'Unknown if injured'},
+        'mapping': {'0': 'Not injured', '3': 'Severe injury', '4': 'Serious injury', '7': 'Injury, unknown severity',
+                    '9': 'Unknown if injured'} | Global_Constants.ais_shared_mapping
     },
     {
         'ranges': [
@@ -34,8 +35,8 @@ nass_injury_col_specific_value_maps = {'AIS': [
             {'start': 1979, 'end': 1992},
         ],
         'mapping': {'R': 'Right', 'L': 'Left', 'B': 'Bilateral', 'C': 'Central', 'A': 'Anterior - front',
-                    'P': 'Posterior - back', 'S': 'Superior - upper', 'I': 'Inferior - lower', 'W': 'Whole Region',
-                    'U': 'Injured, unknown aspect', '0': 'Not Injured', '8': 'Not applicable',
+                    'P': 'Posterior - back', 'S': 'Superior - upper', 'I': 'Inferior - lower', 'W': 'Whole region',
+                    'U': 'Injured, unknown aspect', '0': 'Not injured', '8': 'Not applicable',
                     '9': 'Unknown if injured'},
     },
     {
@@ -102,7 +103,7 @@ nass_injury_col_specific_value_maps = {'AIS': [
             {'start': 1980, 'end': 1980},
             {'start': 1982, 'end': 1996},
         ],
-        'mapping': {'0': 'Not injured', '1': 'Autopsy Records', '2': 'Medical or Hospital Records',
+        'mapping': {'0': 'Not injured', '1': 'Autopsy records', '2': 'Medical or hospital records',
                     '3': 'Emergency room records only', '4': 'Private physician', '5': 'Lay coroner report',
                     '6': 'EMS personnel', '7': 'Interviewee', '8': 'Other source', '9': 'Police'}
     },

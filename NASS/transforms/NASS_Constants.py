@@ -2,7 +2,7 @@ import numpy as np
 from NASS_Injury_Value_Map import nass_injury_col_specific_value_maps
 from NASS_Patient_Value_Map import nass_patient_col_specific_value_maps
 
-nass_global_value_map = {np.nan: None, 'U': 'Unknown', 'A': 'Not Applicable'}
+nass_global_value_map = {np.nan: None, 'U': 'Unknown', 'A': 'Not applicable'}
 nass_1979_path = 'NASS_1979'
 nass_1979_to_1987_paths = ['NASS_1979', 'NASS_1980', 'NASS_1981', 'NASS_1982', 'NASS_1983', 'NASS_1984', 'NASS_1985',
                            'NASS_1986', 'NASS_1987']
