@@ -9,18 +9,22 @@
 # Import injury constants and functions
 import CISS_Utils
 import CISS_Constants
+import Global_Utils
 
 # Assign raw and clean directories
 injury_raw_zipped_directory = '../raw'
 injury_clean_directory = '../clean'
 
-# Setting injury, localizer and output filenames
-injury_filename = 'INJURY'
-localizer_filename = 'LOCALIZER'
-output_filename = injury_clean_directory + '/INJURY_CLEANED.csv'
+# Setting the list of input filenames and the output filename
+injury_input_filename_list = ['INJURY', 'LOCALIZER']
+injury_output_filename = injury_clean_directory + '/INJURY_CLEANED.csv'
 
 # Using the clean_zip_files function to join the injury and localizer files for each year in CISS
 # and then union each years file into an injury dataset
-CISS_Utils.clean_zip_files(injury_raw_zipped_directory, injury_filename, localizer_filename,
-                           CISS_Constants.injury_join_columns, CISS_Constants.injury_output_columns,
-                           CISS_Constants.ciss_injury_col_specific_value_maps, output_filename)
+ciss_injury_df = CISS_Utils.clean_zip_files(injury_raw_zipped_directory, injury_input_filename_list,
+                                            CISS_Constants.injury_join_columns_list,
+                                            CISS_Constants.injury_use_cols_list, CISS_Constants.injury_output_columns)
+
+ciss_injury_df = Global_Utils.clean_column_values(ciss_injury_df, CISS_Constants.ciss_injury_col_specific_value_maps, {})
+
+ciss_injury_df.to_csv(injury_output_filename, encoding='utf-8', index=False)

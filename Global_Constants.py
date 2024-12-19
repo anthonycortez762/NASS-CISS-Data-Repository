@@ -13,3 +13,4 @@ ejection_shared_mapping = {'0': 'None', '1': 'Complete ejection', '2': 'Partial 
 treatment_shared_mapping = {'0': 'No treatment', '3': 'Hospitalization', '8': 'Treatment-other', '9': 'Unknown'}
 hospstay_shared_mapping = {'61': '61 days or more', '99': 'Unknown'}
 belt_use_shared_mapping = {'0': 'None used', '1': 'Shoulder belt', '2': 'Lap belt', '3': 'Lap and shoulder belt'}
+intrusion_shared_mapping = {'997': 'Catastrophic'}

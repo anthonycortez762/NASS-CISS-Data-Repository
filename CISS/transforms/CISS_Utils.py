@@ -2,7 +2,7 @@ import os
 import zipfile
 import pandas as pd
 from pathlib import Path
-import Global_Utils
+import CISS_Constants
 
 
 def get_file_path(name, filenames):
@@ -12,8 +12,7 @@ def get_file_path(name, filenames):
             return filename
 
 
-def clean_zip_files(zipped_directory, first_filename, second_filename, join_columns, output_df_columns,
-                    output_df_column_maps, output_filename):
+def clean_zip_files(zipped_directory, filename_list, join_columns_list, use_cols_list, output_df_columns):
     output_dataframes = []
 
     # Iterate over each zip file in the raw directory
@@ -23,16 +22,39 @@ def clean_zip_files(zipped_directory, first_filename, second_filename, join_colu
             # Filenames are not standard in CISS, so we will search through list of filenames from the zip file to
             # find the filepaths for each year and open the relevant files
             filenames = z.namelist()
-            with z.open(get_file_path(first_filename, filenames)) as first_file:
-                with z.open(get_file_path(second_filename, filenames)) as second_file:
-                    output_df = pd.merge(pd.read_csv(first_file, dtype=str),
-                                         pd.read_csv(second_file, dtype=str), how='left', on=join_columns)
-                    output_df['YEAR'] = int(filename.split('_')[1])
-                    output_df = output_df.filter(output_df_columns)
+            output_df = pd.DataFrame()
 
-                    Global_Utils.clean_column_values(output_df, output_df_column_maps, {})
-                    output_dataframes.append(output_df)
+            # Here we will also determine the file year from the file path and the encoding for each file
+            # CISS files from 2017-2021 used latin1 encoding whereas CISS files from 2022 used utf-8 encoding
+            file_year = filename.split('_')[1]
+            file_encoding = 'latin1' if file_year in CISS_Constants.ciss_years_with_wlatin1_encoding else 'utf-8'
 
-    # Combine each year's dataframe and write the combined dataframe to a new file
+            # Now we will loop through the list of filenames and join the files together
+            for index, zipped_file in enumerate(filename_list, start=-1):
+                with z.open(get_file_path(zipped_file, filenames)) as opened_file:
+                    if output_df.empty:
+                        output_df = pd.read_csv(opened_file, dtype=str, encoding=file_encoding)
+                    else:
+                        output_df = pd.merge(output_df,
+                                             pd.read_csv(opened_file, dtype=str, encoding=file_encoding,
+                                                         usecols=use_cols_list[index]),
+                                             how='left', on=join_columns_list[index])
+
+            output_df['YEAR'] = int(file_year)
+            output_df = output_df.filter(output_df_columns)
+
+            output_dataframes.append(output_df)
+
+    # Combine each year's dataframe and return the combined dataframe
     final_df = pd.concat(output_dataframes)
-    final_df.to_csv(output_filename, encoding='utf-8', index=False)
+    return final_df
+
+
+def pivot_and_join_dfs(base_df, unpivoted_df, aggregation_column, index_column_list, groupby_column,
+                       aggregation_function, column_map, join_columns):
+    pivoted_df = (pd.pivot_table(unpivoted_df, values=aggregation_column, index=index_column_list,
+                                 columns=groupby_column, aggfunc=aggregation_function).rename_axis(columns=None)
+                  .reset_index().rename(columns=column_map))
+    joined_df = pd.merge(base_df, pivoted_df, how='left', on=join_columns)
+
+    return joined_df

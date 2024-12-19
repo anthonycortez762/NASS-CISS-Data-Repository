@@ -111,5 +111,41 @@ ciss_patient_col_specific_value_maps = {
                         '7': 'Other type belt (specify)', '8': 'Police indicated "unknown"', '9': 'Not reported'
                         } | Global_Constants.belt_use_shared_mapping
         }
+    ],
+    'CURBWT': [
+        {
+            'ranges': Global_Constants.common_ciss_year_range,
+            'mapping': {'9999': 'Unknown'}
+        }
+    ],
+    'DVTOTAL': [
+        {
+            'ranges': Global_Constants.common_ciss_year_range,
+            'mapping': {'999': 'Unknown'}
+        }
+    ],
+    'MAXSEATLOCLONGITUDINALINTRUSION': [
+        {
+            'ranges': Global_Constants.common_ciss_year_range,
+            'mapping': Global_Constants.intrusion_shared_mapping
+        }
+    ],
+    'MAXSEATLOCLATERALINTRUSION': [
+        {
+            'ranges': Global_Constants.common_ciss_year_range,
+            'mapping': Global_Constants.intrusion_shared_mapping
+        }
+    ],
+    'MAXVEHICLELONGITUDINALINTRUSION': [
+        {
+            'ranges': Global_Constants.common_ciss_year_range,
+            'mapping': Global_Constants.intrusion_shared_mapping
+        }
+    ],
+    'MAXVEHICLELATERALINTRUSION': [
+        {
+            'ranges': Global_Constants.common_ciss_year_range,
+            'mapping': Global_Constants.intrusion_shared_mapping
+        }
     ]
 }
