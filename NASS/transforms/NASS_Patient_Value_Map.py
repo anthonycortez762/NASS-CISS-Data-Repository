@@ -4,7 +4,7 @@ nass_patient_col_specific_value_maps = {
     'AGE': [
         {
             'ranges': [
-                {'start': 1979, 'end': 1987},
+                {'start': 1979, 'end': 1996},
             ],
             'mapping': {'0': 'Less than one year old', '97': '97 years and older', '99': 'Unknown'},
         }
@@ -12,7 +12,7 @@ nass_patient_col_specific_value_maps = {
     'SEX': [
         {
             'ranges': [
-                {'start': 1979, 'end': 1987},
+                {'start': 1979, 'end': 1996},
             ],
             'mapping': Global_Constants.sex_shared_mapping,
         }
@@ -20,7 +20,7 @@ nass_patient_col_specific_value_maps = {
     'HEIGHT': [
         {
             'ranges': [
-                {'start': 1979, 'end': 1987},
+                {'start': 1979, 'end': 1996},
             ],
             'mapping': {'99': 'Unknown'},
         }
@@ -28,7 +28,7 @@ nass_patient_col_specific_value_maps = {
     'WEIGHT': [
         {
             'ranges': [
-                {'start': 1979, 'end': 1987},
+                {'start': 1979, 'end': 1996},
             ],
             'mapping': Global_Constants.weight_shared_mapping,
         }
@@ -36,7 +36,7 @@ nass_patient_col_specific_value_maps = {
     'ROLE': [
         {
             'ranges': [
-                {'start': 1979, 'end': 1987},
+                {'start': 1979, 'end': 1996},
             ],
             'mapping': Global_Constants.role_shared_mapping,
         }
@@ -52,6 +52,17 @@ nass_patient_col_specific_value_maps = {
                         '10': 'Front seat-additional passenger', '11': 'Second seat or beyond-additional passenger',
                         '12': 'Truck-tractor sleeping section', '13': 'Other enclosed area',
                         '14': 'In or on unenclosed area', '15': 'In or on trailing unit', '99': 'Unknown'},
+        },
+        {
+            'ranges': [
+                {'start': 1988, 'end': 1996},
+            ],
+            'mapping': {'11': 'Front seat-left side', '12': 'Front seat-middle', '13': 'Front seat-right side',
+                        '14': 'Front seat-other', '21': 'Second seat-left side', '22': 'Second seat-middle',
+                        '23': 'Second seat-right side', '24': 'Second seat-other', '31': 'Third seat-left side',
+                        '32': 'Third seat-middle', '33': 'Third seat-right side', '34': 'Third seat-other',
+                        '41': 'Fourth seat-left side', '42': 'Fourth seat-middle', '43': 'Fourth seat-right side',
+                        '44': 'Fourth seat-other', '97': 'In or on unenclosed area', '98': 'Other', 'U': 'Unknown'},
         }
     ],
     'ENTRAP': [
