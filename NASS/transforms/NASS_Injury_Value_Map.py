@@ -9,7 +9,14 @@ nass_injury_col_specific_value_maps = {'AIS': [
         'mapping': {'0': 'Not Injured', '1': 'Minor Injury', '2': 'Moderate Injury', '3': 'Severe Injury',
                     '4': 'Serious Injury', '5': 'Critical Injury', '6': 'Maximum Injury',
                     '7': 'Injury, Unknown Severity', '9': 'Unknown if injured'},
-    }
+    },
+    {
+        'ranges': [
+            {'start': 1988, 'end': 2015},
+        ],
+        'mapping': {'1': 'Minor Injury', '2': 'Moderate Injury', '3': 'Serious Injury', '4': 'Severe Injury', 
+                    '5': 'Critical Injury', '6': 'Maximum Injury', '7': 'Injury, Unknown Severity'},
+    }    
 ], 'ASPECT': [
     {
         'ranges': [
@@ -31,6 +38,16 @@ nass_injury_col_specific_value_maps = {'AIS': [
                     'R': 'Respiratory', 'S': 'Skeletal', 'C': 'Spinal cord', 'Q': 'Spleen',
                     'T': 'Thyroid, other endocrine gland', 'G': 'Urogenital', 'V': 'Vertebrae', '0': 'Not injured',
                     '8': 'Not applicable', '9': 'Unknown if injured'},
+    },
+    {
+        'ranges': [
+            {'start': 1995, 'end': 2015},
+        ],
+        'mapping': {'A': 'Arteries - Veins', 'B': 'Brain', 'C': 'Spinal Cord', 'D': 'Digestive', 'E': 'Ears', 
+                    'G': 'Urogenital', 'H': 'Heart', 'I': 'Integumentary', 'J': 'Joints', 'K': 'Kidneys', 'L': 'Liver', 
+                    'M': 'Muscles', 'N': 'Nervous System', 'O': 'Eye', 'P': 'Pulmonary - Lungs', 'Q': 'Spleen', 
+                    'R': 'Respiratory', 'S': 'Skeletal', 'T': 'Thyroid', 'U': 'Injured/Unknown System', 
+                    'V': 'Vertebrae', 'W': 'All Systems in Region'},
     }
 ], 'BODYREG': [
     {
@@ -43,6 +60,15 @@ nass_injury_col_specific_value_maps = {'AIS': [
                     'P': 'Pelvic - hip', 'Y': 'Lower limb(s) (whole or unknown part)', 'T': 'Thigh', 'K': 'Knee',
                     'L': 'Leg (lower)', 'Q': 'Ankle - foot', 'O': 'Whole body', 'U': 'Injured, unknown region',
                     '0': 'Not injured', '8': 'Not applicable', '9': 'Unknown if injured'},
+    },
+    {
+        'ranges': [
+            {'start': 1995, 'end': 2015},
+        ],
+        'mapping': {'A': 'Arm', 'B': 'Back', 'C': 'Chest', 'E': 'Elbow', 'F': 'Face', 'H': 'Head', 'K': 'Knee', 
+                    'L': 'Leg/Lower', 'M': 'Abdomen', 'N': 'Neck', 'P': 'Pelvic/Hip', 'Q': 'Ankle/Foot', 
+                    'R': 'Forearm', 'S': 'Shoulder', 'T': 'Thigh', 'U': 'Injured, unknown region', 'W': 'Wrist/Hand', 
+                    'X': 'Upper Limbs', 'Y': 'Lower Limbs'},
     }
 ], 'LESION': [
     {
@@ -63,6 +89,15 @@ nass_injury_col_specific_value_maps = {'AIS': [
                     'F': 'Fracture', 'P': 'Perforation, puncture', 'K': 'Concussion', 'V': 'Avulsion', 'R': 'Rupture',
                     'S': 'Sprain', 'D': 'Dislocation', 'N': 'Crushing', 'M': 'Amputation', 'B': 'Burn', 'O': 'Other',
                     'U': 'Injured, unknown lesion', '0': 'Not injured', '9': 'Unknown if injured'},
+    },
+    {
+        'ranges': [
+            {'start': 1995, 'end': 2015},
+        ],
+        'mapping': {'A': 'Abrasion', 'B': 'Burn', 'C': 'Contusion', 'D': 'Dislocation', 'E': 'Total Severance', 
+                    'F': 'Fracture', 'G': 'Detachment', 'K': 'Concussion', 'L': 'Laceration', 'M': 'Amputation', 
+                    'N': 'Crush', 'O': 'Other', 'P': 'Perforation, puncture', 'R': 'Rupture', 'S': 'Sprain', 
+                    'T': 'Strain', 'U': 'Injured, unknown Lesion', 'V': 'Avulsion'}
     }
 ], 'SOUDAT': [
     {
@@ -85,5 +120,36 @@ nass_injury_col_specific_value_maps = {'AIS': [
             {'start': 1981, 'end': 1981},
         ],
         'mapping': {'0': 'Not injured'} | soudat_shared_mapping
+    },
+    {
+        'ranges': [
+            {'start': 1988, 'end': 2006},
+        ],
+        'mapping': {1: 'Autopsy Records', 2: 'Medical or Hospital Records', 3: 'Emergency Room Records', 
+                    4: 'Private Physician or Clinic', 5: 'Lay Coroner Report', 6: 'EMS Personnel', 7: 'Interviewee', 
+                    8: 'Other Source', 9: 'Police'}
+    },
+    {
+        'ranges': [
+            {'start': 2007, 'end': 2015},
+        ],
+        'mapping': {2: 'Medical or Hospital Records', 3: 'Emergency Room Records', 4: 'Private Physician or Clinic', 
+                    5: 'Lay Coroner Report', 6: 'EMS Personnel', 7: 'Interviewee', 8: 'Other Source', 9: 'Police', 
+                    16: 'Internal Autopsy', 17: 'External Autopsy'}
     }
+], 'ASPECT90': [
+    {
+        'ranges': [
+            {'start': 1993, 'end': 2008},
+        ],
+        'mapping': {0: 'Whole Region', 1: 'Right', 2: 'Left', 3: 'Bilateral', 4: 'Central', 5: 'Anterior', 6: 'Posterior', 
+                    7: 'Superior', 8: 'Inferior'}
+    },
+    {
+        'ranges': [
+            {'start': 2009, 'end': 2015},
+        ],
+        'mapping': {0: 'Whole Region', 1: 'Right', 2: 'Left', 3: 'Bilateral', 4: 'Central', 5: 'Anterior/Front/Ventral', 
+                    6: 'Posterior/Back/Dorsal', 7: 'Superior/Upper', 8: 'Inferior/Lower'}
+    }    
 ]}

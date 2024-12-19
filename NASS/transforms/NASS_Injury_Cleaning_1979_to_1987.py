@@ -17,7 +17,7 @@ def clean_nass_injury_files():
     # and union the occupant files from 1979 to 1987 together
     nass_injury_df_1979_to_1987 = NASS_Utils.rename_and_union_dfs(nass_raw_directory,
                                                                   NASS_Constants.nass_1979_to_1987_paths,
-                                                                  NASS_Constants.nass_occupant_file_ending,
+                                                                  NASS_Constants.nass_1979_to_1987_occupant_file_ending,
                                                                   NASS_Constants.nass_1979_path,
                                                                   NASS_Constants.nass_1979_to_1981_injury_col_name_maps)
 

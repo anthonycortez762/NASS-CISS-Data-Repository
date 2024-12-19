@@ -1,6 +1,10 @@
 import os
+import sys
 import pandas as pd
 
+# Add the root directory to sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+import Global_Utils
 
 def rename_and_union_dfs(raw_directory, file_paths, file_ending, base_file_path, col_name_maps):
     output_dataframes = []
@@ -19,3 +23,30 @@ def rename_and_union_dfs(raw_directory, file_paths, file_ending, base_file_path,
 
     final_df = pd.concat(output_dataframes)
     return final_df
+
+def clean_binary(df, columns_to_clean):
+    for column in columns_to_clean:
+        df[column] = df[column].apply(lambda x: x.decode('utf-8') if isinstance(x, bytes) else x)
+        # Remove empty space preceding any string values
+        if df[column].apply(lambda x: isinstance(x, str)).any():
+            df[column] = df[column].apply(lambda x: x.lstrip() if isinstance(x, str) else x)
+    return df
+
+def clean_sas_files(raw_directory, file_paths, file_ending, output_df_columns, output_df_column_maps, global_value_map, output_filename):
+    output_dataframes = []
+    
+    for file in file_paths:
+        output_df = pd.read_sas(os.path.join(raw_directory, file, file_ending))
+        # Harmonize column names (Neded for 2001 to 2010 where BODY, LESION and SYSORG are not upper case)
+        output_df.columns = [col.upper() if not col.isupper() else col for col in output_df.columns]
+        output_df = output_df.filter(output_df_columns)
+        
+        clean_binary(output_df, output_df.columns.to_list())
+        output_df['YEAR'] = int(file.split('_')[1])
+        output_dataframes.append(output_df)
+
+    final_df = pd.concat(output_dataframes)
+
+    #final_nass_injury_df_1997_to_2015 = final_df
+    final_nass_injury_df_1997_to_2015 = Global_Utils.clean_column_values(final_df, output_df_column_maps, global_value_map)
+    final_nass_injury_df_1997_to_2015.to_csv(output_filename, encoding='utf-8', index=False)
