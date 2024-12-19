@@ -1,4 +1,4 @@
-import Global_Constants
+from NASS.transforms import Global_Constants
 
 ciss_injury_col_specific_value_maps = {
     'AIS': [
