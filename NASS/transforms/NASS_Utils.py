@@ -47,6 +47,5 @@ def clean_sas_files(raw_directory, file_paths, file_ending, output_df_columns, o
 
     final_df = pd.concat(output_dataframes)
 
-    #final_nass_injury_df_1997_to_2015 = final_df
     final_nass_injury_df_1997_to_2015 = Global_Utils.clean_column_values(final_df, output_df_column_maps, global_value_map)
     final_nass_injury_df_1997_to_2015.to_csv(output_filename, encoding='utf-8', index=False)
