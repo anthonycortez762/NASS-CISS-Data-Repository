@@ -17,11 +17,13 @@ def clean_nass_injury_files():
     # and union the occupant files from 1979 to 1987 together
     col_name_maps = NASS_Constants.nass_1979_to_1981_injury_col_name_maps
     desired_columns = col_name_maps[NASS_Constants.nass_1979_path].values()
-    nass_injury_df_1979_to_1987 = NASS_Utils.rename_and_union_dfs(nass_raw_directory,
-                                                                  NASS_Constants.nass_1979_to_1987_paths,
-                                                                  NASS_Constants.nass_occupant_file_ending,
-                                                                  desired_columns,
-                                                                  col_name_maps)
+    nass_injury_df_1979_to_1987 = NASS_Utils.rename_and_union_dfs(
+        raw_directory=nass_raw_directory,
+        file_paths=NASS_Constants.nass_1979_to_1987_paths,
+        file_ending=NASS_Constants.nass_occupant_file_ending,
+        desired_columns=desired_columns,
+        col_name_maps=col_name_maps
+    )
 
     # Unpivot the 6 AIS, ASPECT, BODYREG, LESION, SYSORG, and SOUDAT columns into rows
     unpivoted_nass_injury_df_1979_to_1987 = pd.wide_to_long(
@@ -34,10 +36,11 @@ def clean_nass_injury_files():
     # Filter out injuries where all injury descriptor columns are NaN
     unpivoted_nass_injury_df_1979_to_1987 = unpivoted_nass_injury_df_1979_to_1987.dropna(
         subset=['AIS', 'ASPECT', 'BODYREG', 'LESION', 'SYSORG'], how='all')
-    final_nass_injury_df_1979_to_1987 = Global_Utils.clean_column_values(unpivoted_nass_injury_df_1979_to_1987,
-                                                                         NASS_Constants.nass_injury_col_specific_value_maps,
-                                                                         NASS_Constants.nass_global_value_map)
-
+    final_nass_injury_df_1979_to_1987 = Global_Utils.clean_column_values(
+        unpivoted_nass_injury_df_1979_to_1987,
+        NASS_Constants.nass_injury_col_specific_value_maps,
+        NASS_Constants.nass_global_value_map
+    )
     final_nass_injury_df_1979_to_1987.to_csv(nass_injury_output_filename, encoding='utf-8', index=False)
 
 
