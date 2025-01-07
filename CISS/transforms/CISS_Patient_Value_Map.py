@@ -124,28 +124,4 @@ ciss_patient_col_specific_value_maps = {
             'mapping': {'999': 'Unknown'}
         }
     ],
-    'MAXSEATLOCLONGITUDINALINTRUSION': [
-        {
-            'ranges': Global_Constants.common_ciss_year_range,
-            'mapping': Global_Constants.intrusion_shared_mapping
-        }
-    ],
-    'MAXSEATLOCLATERALINTRUSION': [
-        {
-            'ranges': Global_Constants.common_ciss_year_range,
-            'mapping': Global_Constants.intrusion_shared_mapping
-        }
-    ],
-    'MAXVEHICLELONGITUDINALINTRUSION': [
-        {
-            'ranges': Global_Constants.common_ciss_year_range,
-            'mapping': Global_Constants.intrusion_shared_mapping
-        }
-    ],
-    'MAXVEHICLELATERALINTRUSION': [
-        {
-            'ranges': Global_Constants.common_ciss_year_range,
-            'mapping': Global_Constants.intrusion_shared_mapping
-        }
-    ]
 }

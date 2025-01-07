@@ -1,5 +1,6 @@
 from CISS_Injury_Value_Map import ciss_injury_col_specific_value_maps
 from CISS_Patient_Value_Map import ciss_patient_col_specific_value_maps
+from CISS_Intrusion_Value_Map import ciss_intrusion_col_specific_value_maps
 
 # Injury Constants
 injury_join_columns_list = [['CASEID', 'CASENO', 'VEHNO', 'OCCNO', 'INJNO']]
@@ -20,7 +21,15 @@ patient_output_columns = patient_join_columns_list[0] + ['YEAR', 'AGE', 'SEX', '
                                                          'DVTOTAL', 'EVENTS']
 intrusion_base_column_list = ['CASEID', 'PSU', 'CASENO', 'VEHNO', 'YEAR']
 seat_loc_intrusion_column_list = intrusion_base_column_list + ['SEATLOC']
-intrusion_output_columns = seat_loc_intrusion_column_list + ['INTRUNO', 'INTRUSION', 'INTDIRECT']
+intrusion_output_columns = seat_loc_intrusion_column_list + ['INTRUNO', 'INTRUSION', 'INTMAG', 'INTDIRECT']
+max_intrusion_by_seat_loc_column_map = {'INTMAG_2': 'MAXSEATLOCLONGITUDINALINTMAG',
+                                        'INTMAG_3': 'MAXSEATLOCLATERALINTMAG',
+                                        'INTRUSION_2': 'MAXSEATLOCLONGITUDINALINTRUSION',
+                                        'INTRUSION_3': 'MAXSEATLOCLATERALINTRUSION'}
+max_intrusion_by_vehicle_column_map = {'INTMAG_2': 'MAXVEHICLELONGITUDINALINTMAG',
+                                       'INTMAG_3': 'MAXVEHICLELATERALINTMAG',
+                                       'INTRUSION_2': 'MAXVEHICLELONGITUDINALINTRUSION',
+                                       'INTRUSION_3': 'MAXVEHICLELATERALINTRUSION'}
 
 # Encoding Constants
 ciss_years_with_wlatin1_encoding = ['2017', '2018', '2019', '2020', '2021']

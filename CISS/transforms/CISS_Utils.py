@@ -50,11 +50,17 @@ def clean_zip_files(zipped_directory, filename_list, join_columns_list, use_cols
     return final_df
 
 
-def pivot_and_join_dfs(base_df, unpivoted_df, aggregation_column, index_column_list, groupby_column,
+def pivot_and_join_dfs(base_df, unpivoted_df, aggregation_column_list, index_column_list, groupby_column,
                        aggregation_function, column_map, join_columns):
-    pivoted_df = (pd.pivot_table(unpivoted_df, values=aggregation_column, index=index_column_list,
-                                 columns=groupby_column, aggfunc=aggregation_function).rename_axis(columns=None)
-                  .reset_index().rename(columns=column_map))
-    joined_df = pd.merge(base_df, pivoted_df, how='left', on=join_columns)
+    # First we will create a pivot table to calculate the aggregated metrics
+    pivoted_df = pd.pivot_table(unpivoted_df, values=aggregation_column_list, index=index_column_list,
+                                columns=groupby_column, aggfunc=aggregation_function)
+    # If the pivot table is a MultiIndex we will collapse the newly derived columns
+    if isinstance(pivoted_df.columns, pd.MultiIndex):
+        pivoted_df.columns = pivoted_df.columns.to_series().str.join('_')
 
+    pivoted_df = pivoted_df.reset_index().rename(columns=column_map)
+
+    # Lastly we will join the aggregated data with the base df
+    joined_df = pd.merge(base_df, pivoted_df, how='left', on=join_columns)
     return joined_df
