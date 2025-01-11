@@ -12,7 +12,7 @@ nass_occupant_file_ending = 'occupant.csv'
 nass_oi_file_ending = 'oi.csv'
 
 # Desired injury column names 1988-1996
-injury_cols = ["CASEID", "VEHNO", "OCCNO", "INJNO", "AIS", "ASPECT", "BODYREG", "LESION", "SYSORG", "SOUDAT"]
+injury_cols = ["PSU", "CASEID", "VEHNO", "OCCNO", "INJNO", "AIS", "ASPECT", "BODYREG", "LESION", "SYSORG", "SOUDAT"]
 
 # Injury Constants for 1979 to 1981
 nass_1979_to_1981_injury_col_name_maps = {

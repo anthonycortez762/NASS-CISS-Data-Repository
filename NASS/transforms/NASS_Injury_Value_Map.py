@@ -1,7 +1,7 @@
 import Global_Constants
 
-soudat_shared_mapping = {'1': 'Autopsy Records', '2': 'Medical or Hospital Records', '3': 'Treating Physician',
-                         '4': 'Interviewee', '5': 'EMS Personnel', '6': 'Police', '7': 'Other source', '9': 'Unknown'}
+soudat_shared_mapping = {'1': 'Autopsy records', '2': 'Medical or hospital records', '3': 'Treating physician',
+                         '4': 'Interviewee', '5': 'EMS personnel', '6': 'Police', '7': 'Other source', '9': 'Unknown'}
 
 nass_injury_col_specific_value_maps = {'AIS': [
     {
