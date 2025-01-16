@@ -16,18 +16,8 @@ nass_injury_col_specific_value_maps = {'AIS': [
             {'start': 1988, 'end': 1996},
         ],
         # Note difference from 1979-1987: swap severities for '3' and '4'
-        'mapping': {
-            '0': 'Not Injured',
-            '1': 'Minor Injury',
-            '2': 'Moderate Injury',
-            '3': 'Serious Injury',
-            '4': 'Severe Injury',
-            '5': 'Critical Injury',
-            '6': 'Maximum Injury',
-            '7': 'Injury, Unknown Severity',
-            '8': 'Not applicable',
-            '9': 'Unknown if injured',
-        },
+        'mapping': {'0': 'Not injured', '3': 'Serious injury', '4': 'Severe injury', '7': 'Injury, unknown severity',
+                    '8': 'Not applicable', '9': 'Unknown if injured'} | Global_Constants.ais_shared_mapping
     }
 ], 'ASPECT': [
     {
@@ -44,7 +34,7 @@ nass_injury_col_specific_value_maps = {'AIS': [
             {'start': 1993, 'end': 1996},
         ],
         'mapping': {'1': 'Right', '2': 'Left', '3': 'Bilateral', '4': 'Central', '5': 'Anterior',
-                    '6': 'Posterior', '7': 'Superior', '8': 'Inferior', '9': 'Unknown', '10': 'Whole region',
+                    '6': 'Posterior', '7': 'Superior', '8': 'Inferior', '9': 'Unknown', '0': 'Whole region',
                     'U': 'Injured, unknown aspect'},
     }
 ], 'SYSORG': [
