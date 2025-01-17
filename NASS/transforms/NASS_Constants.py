@@ -6,9 +6,15 @@ nass_global_value_map = {np.nan: None, 'U': 'Unknown', 'A': 'Not applicable'}
 nass_1979_path = 'NASS_1979'
 nass_1979_to_1987_paths = ['NASS_1979', 'NASS_1980', 'NASS_1981', 'NASS_1982', 'NASS_1983', 'NASS_1984', 'NASS_1985',
                            'NASS_1986', 'NASS_1987']
+nass_1988_to_1996_paths = ['NASS_1988', 'NASS_1989', 'NASS_1990', 'NASS_1991', 'NASS_1992', 'NASS_1993', 'NASS_1994',
+                           'NASS_1995', 'NASS_1996']
 nass_occupant_file_ending = 'occupant.csv'
+nass_oi_file_ending = 'oi.csv'
 
-# Injury Constants
+# Desired injury column names 1988-1996
+injury_cols = ["PSU", "CASEID", "VEHNO", "OCCNO", "INJNO", "AIS", "ASPECT", "BODYREG", "LESION", "SYSORG", "SOUDAT"]
+
+# Injury Constants for 1979 to 1981
 nass_1979_to_1981_injury_col_name_maps = {
     'NASS_1979': {'H01': 'PSU', 'H02': 'CASEID', 'H06': 'VEHNO', 'O07': 'OCCNO', 'O32': 'AIS1', 'O39': 'AIS2',
                   'O46': 'AIS3', 'O53': 'AIS4', 'O60': 'AIS5', 'O67': 'AIS6', 'O29': 'ASPECT1', 'O36': 'ASPECT2',
@@ -38,7 +44,15 @@ nass_1979_to_1981_injury_col_name_maps = {
                   'ODATSOU6': 'SOUDAT6'}
 }
 
-# Patient Constants
+# Injury Constants for 1988 to 1996
+nass_1988_to_1996_injury_col_name_maps = {
+    'NASS_1993': {'ASPECT90': 'ASPECT'},
+    'NASS_1994': {'ASPECT90': 'ASPECT'},
+    'NASS_1995': {'ASPECT90': 'ASPECT'},
+    'NASS_1996': {'ASPECT90': 'ASPECT'}
+}
+
+# Patient Constants for 1979 to 1981
 nass_1979_to_1981_patient_col_name_maps = {
     'NASS_1979': {'H01': 'PSU', 'H02': 'CASEID', 'O07': 'OCCNO', 'H06': 'VEHNO', 'O08': 'AGE', 'O09': 'SEX',
                   'O10': 'HEIGHT', 'O11': 'WEIGHT', 'O12': 'ROLE', 'O13': 'SEATPOS', 'O15': 'EJECTION', 'O14': 'ENTRAP',
