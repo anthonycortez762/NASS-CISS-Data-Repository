@@ -19,6 +19,10 @@ injury_cols = ["PSU", "CASEID", "VEHNO", "OCCNO", "INJNO", "AIS", "ASPECT", "BOD
 patient_cols = ["CASEID", "OCCNO", "VEHNO", "AGE", "SEX", "HEIGHT", "WEIGHT", "ROLE", "PARUSE", "SEATPOS", "EJECTION",
                 "ENTRAP", "HOSPSTAY", "TREATMNT"]
 
+# Desired patient column names 1988-1996
+patient_cols = ["CASEID", "OCCNO", "VEHNO", "AGE", "SEX", "HEIGHT", "WEIGHT", "ROLE", "PARUSE", "SEATPOS", "EJECTION",
+                "ENTRAP", "HOSPSTAY", "TREATMNT"]
+
 # Injury Constants for 1979 to 1981
 nass_1979_to_1981_injury_col_name_maps = {
     'NASS_1979': {'H01': 'PSU', 'H02': 'CASEID', 'H06': 'VEHNO', 'O07': 'OCCNO', 'O32': 'AIS1', 'O39': 'AIS2',
