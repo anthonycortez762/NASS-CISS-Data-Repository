@@ -27,7 +27,8 @@ ciss_patient_df = CISS_Utils.clean_zip_files(patient_raw_zipped_directory, patie
 
 # Using the clean_zip_files function to union each years intrusion file into an intrusion dataset
 ciss_intrusion_df = CISS_Utils.clean_zip_files(patient_raw_zipped_directory, intrusion_filename_list,
-                                               [], [], CISS_Constants.intrusion_output_columns)
+                                               [], CISS_Constants.intrusion_use_cols_list,
+                                               CISS_Constants.intrusion_output_columns)
 
 # Filter to lateral and longitudinal intrusions
 ciss_intrusion_df = ciss_intrusion_df[ciss_intrusion_df[intrusion_direction_column_name].isin(lateral_and_longitudinal_intrusion_directions)]
@@ -55,6 +56,7 @@ ciss_patient_df = CISS_Utils.pivot_and_join_dfs(ciss_patient_df, ciss_intrusion_
                                                 CISS_Constants.max_intrusion_by_vehicle_column_map,
                                                 CISS_Constants.intrusion_base_column_list)
 
-ciss_patient_df = Global_Utils.clean_column_values(ciss_patient_df, CISS_Constants.ciss_patient_col_specific_value_maps, {})
+ciss_patient_df = Global_Utils.clean_column_values(ciss_patient_df, CISS_Constants.ciss_patient_col_specific_value_maps,
+                                                   CISS_Constants.ciss_global_value_map)
 
 ciss_patient_df.to_csv(patient_output_filename, encoding='utf-8', index=False)

@@ -25,20 +25,21 @@ def clean_zip_files(zipped_directory, filename_list, join_columns_list, use_cols
             output_df = pd.DataFrame()
 
             # Here we will also determine the file year from the file path and the encoding for each file
-            # CISS files from 2017-2021 used latin1 encoding whereas CISS files from 2022 used utf-8 encoding
+            # CISS files from 2017-2021 used wlatin1 encoding whereas CISS files from 2022 used utf-8 encoding
             file_year = filename.split('_')[1]
-            file_encoding = 'latin1' if file_year in CISS_Constants.ciss_years_with_wlatin1_encoding else 'utf-8'
+            file_encoding = 'cp1252' if file_year in CISS_Constants.ciss_years_with_wlatin1_encoding else 'utf-8'
 
             # Now we will loop through the list of filenames and join the files together
-            for index, zipped_file in enumerate(filename_list, start=-1):
+            for index, zipped_file in enumerate(filename_list):
                 with z.open(get_file_path(zipped_file, filenames)) as opened_file:
                     if output_df.empty:
-                        output_df = pd.read_csv(opened_file, dtype=str, encoding=file_encoding)
+                        output_df = pd.read_csv(opened_file, dtype=str, encoding=file_encoding,
+                                                usecols=use_cols_list[index])
                     else:
                         output_df = pd.merge(output_df,
                                              pd.read_csv(opened_file, dtype=str, encoding=file_encoding,
                                                          usecols=use_cols_list[index]),
-                                             how='left', on=join_columns_list[index])
+                                             how='left', on=join_columns_list[index - 1])
 
             output_df['YEAR'] = int(file_year)
             output_df = output_df.filter(output_df_columns)

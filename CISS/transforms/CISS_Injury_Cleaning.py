@@ -25,6 +25,7 @@ ciss_injury_df = CISS_Utils.clean_zip_files(injury_raw_zipped_directory, injury_
                                             CISS_Constants.injury_join_columns_list,
                                             CISS_Constants.injury_use_cols_list, CISS_Constants.injury_output_columns)
 
-ciss_injury_df = Global_Utils.clean_column_values(ciss_injury_df, CISS_Constants.ciss_injury_col_specific_value_maps, {})
+ciss_injury_df = Global_Utils.clean_column_values(ciss_injury_df, CISS_Constants.ciss_injury_col_specific_value_maps,
+                                                  CISS_Constants.ciss_global_value_map)
 
 ciss_injury_df.to_csv(injury_output_filename, encoding='utf-8', index=False)
