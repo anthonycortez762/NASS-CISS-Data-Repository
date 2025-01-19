@@ -10,21 +10,37 @@ nass_injury_col_specific_value_maps = {'AIS': [
         ],
         'mapping': {'0': 'Not injured', '3': 'Severe injury', '4': 'Serious injury', '7': 'Injury, unknown severity',
                     '9': 'Unknown if injured'} | Global_Constants.ais_shared_mapping
+    },
+    {
+        'ranges': [
+            {'start': 1988, 'end': 1996},
+        ],
+        # Note difference from 1979-1987: swap severities for '3' and '4'
+        'mapping': {'0': 'Not injured', '3': 'Serious injury', '4': 'Severe injury', '7': 'Injury, unknown severity',
+                    '8': 'Not applicable', '9': 'Unknown if injured'} | Global_Constants.ais_shared_mapping
     }
 ], 'ASPECT': [
     {
         'ranges': [
-            {'start': 1979, 'end': 1987},
+            {'start': 1979, 'end': 1992},
         ],
         'mapping': {'R': 'Right', 'L': 'Left', 'B': 'Bilateral', 'C': 'Central', 'A': 'Anterior - front',
                     'P': 'Posterior - back', 'S': 'Superior - upper', 'I': 'Inferior - lower', 'W': 'Whole region',
                     'U': 'Injured, unknown aspect', '0': 'Not injured', '8': 'Not applicable',
                     '9': 'Unknown if injured'},
+    },
+    {
+        'ranges': [
+            {'start': 1993, 'end': 1996},
+        ],
+        'mapping': {'1': 'Right', '2': 'Left', '3': 'Bilateral', '4': 'Central', '5': 'Anterior',
+                    '6': 'Posterior', '7': 'Superior', '8': 'Inferior', '9': 'Unknown', '0': 'Whole region',
+                    'U': 'Injured, unknown aspect'},
     }
 ], 'SYSORG': [
     {
         'ranges': [
-            {'start': 1979, 'end': 1987},
+            {'start': 1979, 'end': 1996},
         ],
         'mapping': {'W': 'All systems in region', 'A': 'Arteries - veins', 'B': 'Brain', 'D': 'Digestive', 'E': 'Ears',
                     'O': 'Eye', 'H': 'Heart', 'U': 'Injured, unknown system', 'I': 'Integumentary', 'J': 'Joints',
@@ -36,7 +52,7 @@ nass_injury_col_specific_value_maps = {'AIS': [
 ], 'BODYREG': [
     {
         'ranges': [
-            {'start': 1979, 'end': 1987},
+            {'start': 1979, 'end': 1996},
         ],
         'mapping': {'H': 'Head - skull', 'F': 'Face', 'N': 'Neck - cervical spine', 'S': 'Shoulder',
                     'X': 'Upper limb(s) (whole or unknown part)', 'A': 'Arm (upper)', 'E': 'Elbow', 'R': 'Forearm',
@@ -57,7 +73,7 @@ nass_injury_col_specific_value_maps = {'AIS': [
     },
     {
         'ranges': [
-            {'start': 1980, 'end': 1987},
+            {'start': 1980, 'end': 1996},
         ],
         'mapping': {'Z': 'Fracture and dislocation', 'T': 'Strain', 'E': 'Total severence',
                     'G': 'Detachment, separation', 'L': 'Laceration', 'C': 'Contusion', 'A': 'Abrasion',
@@ -75,7 +91,7 @@ nass_injury_col_specific_value_maps = {'AIS': [
     {
         'ranges': [
             {'start': 1980, 'end': 1980},
-            {'start': 1982, 'end': 1987},
+            {'start': 1982, 'end': 1996},
         ],
         'mapping': {'0': 'Not injured', '1': 'Autopsy records', '2': 'Medical or hospital records',
                     '3': 'Emergency room records only', '4': 'Private physician', '5': 'Lay coroner report',
