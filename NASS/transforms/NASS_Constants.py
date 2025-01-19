@@ -10,9 +10,18 @@ nass_1988_to_1996_paths = ['NASS_1988', 'NASS_1989', 'NASS_1990', 'NASS_1991', '
                            'NASS_1995', 'NASS_1996']
 nass_occupant_file_ending = 'occupant.csv'
 nass_oi_file_ending = 'oi.csv'
+nass_oa_file_ending = 'oa.csv'
 
 # Desired injury column names 1988-1996
 injury_cols = ["PSU", "CASEID", "VEHNO", "OCCNO", "INJNO", "AIS", "ASPECT", "BODYREG", "LESION", "SYSORG", "SOUDAT"]
+
+# Desired patient column names 1988-1996
+patient_cols = ["CASEID", "OCCNO", "VEHNO", "AGE", "SEX", "HEIGHT", "WEIGHT", "ROLE", "PARUSE", "SEATPOS", "EJECTION",
+                "ENTRAP", "HOSPSTAY", "TREATMNT"]
+
+# Desired patient column names 1988-1996
+patient_cols = ["CASEID", "OCCNO", "VEHNO", "AGE", "SEX", "HEIGHT", "WEIGHT", "ROLE", "PARUSE", "SEATPOS", "EJECTION",
+                "ENTRAP", "HOSPSTAY", "TREATMNT"]
 
 # Injury Constants for 1979 to 1981
 nass_1979_to_1981_injury_col_name_maps = {
@@ -64,3 +73,6 @@ nass_1979_to_1981_patient_col_name_maps = {
                   'HEIGHT', 'OWGT': 'WEIGHT', 'OCC_ROLE': 'ROLE', 'SEAT_POS': 'SEATPOS', 'OHOSPDYS': 'HOSPSTAY',
                   'OTREATMT': 'TREATMNT', 'MAN_REST': 'MANUSE', 'AUT_REST': 'AUTFNCT'}
 }
+
+# Patient Constants for 1988 to 1996
+nass_1988_to_1996_patient_col_name_maps = {}
