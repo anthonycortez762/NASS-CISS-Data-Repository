@@ -18,7 +18,7 @@ nass_injury_col_specific_value_maps = {'AIS': [
         # Note difference from 1979-1987: swap severities for '3' and '4'
         'mapping': {'0': 'Not injured', '3': 'Serious injury', '4': 'Severe injury', '7': 'Injury, unknown severity',
                     '8': 'Not applicable', '9': 'Unknown if injured'} | Global_Constants.ais_shared_mapping
-    }
+    },
     {
         'ranges': [
             {'start': 1997, 'end': 2015},
@@ -44,6 +44,21 @@ nass_injury_col_specific_value_maps = {'AIS': [
                     '6': 'Posterior', '7': 'Superior', '8': 'Inferior', '9': 'Unknown', '0': 'Whole region',
                     'U': 'Injured, unknown aspect'},
     }
+], 'ASPECT90': [
+    {
+        'ranges': [
+            {'start': 1997, 'end': 2008},
+        ],
+        'mapping': {0: 'Whole Region', 1: 'Right', 2: 'Left', 3: 'Bilateral', 4: 'Central', 5: 'Anterior', 6: 'Posterior', 
+                    7: 'Superior', 8: 'Inferior'}
+    },
+    {
+        'ranges': [
+            {'start': 2009, 'end': 2015},
+        ],
+        'mapping': {0: 'Whole Region', 1: 'Right', 2: 'Left', 3: 'Bilateral', 4: 'Central', 5: 'Anterior/Front/Ventral', 
+                    6: 'Posterior/Back/Dorsal', 7: 'Superior/Upper', 8: 'Inferior/Lower'}
+    }    
 ], 'SYSORG': [
     {
         'ranges': [
@@ -154,19 +169,4 @@ nass_injury_col_specific_value_maps = {'AIS': [
                     5: 'Lay Coroner Report', 6: 'EMS Personnel', 7: 'Interviewee', 8: 'Other Source', 9: 'Police', 
                     16: 'Internal Autopsy', 17: 'External Autopsy'}
     }
-], 'ASPECT90': [
-    {
-        'ranges': [
-            {'start': 1997, 'end': 2008},
-        ],
-        'mapping': {0: 'Whole Region', 1: 'Right', 2: 'Left', 3: 'Bilateral', 4: 'Central', 5: 'Anterior', 6: 'Posterior', 
-                    7: 'Superior', 8: 'Inferior'}
-    },
-    {
-        'ranges': [
-            {'start': 2009, 'end': 2015},
-        ],
-        'mapping': {0: 'Whole Region', 1: 'Right', 2: 'Left', 3: 'Bilateral', 4: 'Central', 5: 'Anterior/Front/Ventral', 
-                    6: 'Posterior/Back/Dorsal', 7: 'Superior/Upper', 8: 'Inferior/Lower'}
-    }    
 ]}
