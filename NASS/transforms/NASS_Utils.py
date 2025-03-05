@@ -6,7 +6,15 @@ import pandas as pd
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import Global_Utils
 
-def rename_and_union_dfs(raw_directory, file_paths, file_ending, base_file_path, col_name_maps):
+def rename_and_union_dfs(raw_directory, file_paths, file_ending, desired_columns, col_name_maps):
+    """
+    :param raw_directory:
+    :param file_paths:
+    :param file_ending:
+    :param desired_columns:
+    :param col_name_maps:
+    :return: union of dataframes, each containing NASS data for a particular year
+    """
     output_dataframes = []
 
     # For each file path we will read in the relevant csv file, and we will map the column names of the files
@@ -17,7 +25,7 @@ def rename_and_union_dfs(raw_directory, file_paths, file_ending, base_file_path,
             output_df = output_df.rename(columns=col_name_maps[file])
         # Here we select the relevant columns using the base_file_path, add a year column, and append each file
         # to a list to then union
-        output_df = output_df[col_name_maps[base_file_path].values()]
+        output_df = output_df[desired_columns]
         output_df['YEAR'] = int(file.split('_')[1])
         output_dataframes.append(output_df)
 
