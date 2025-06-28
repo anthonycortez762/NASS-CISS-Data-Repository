@@ -1,3 +1,7 @@
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+
 import Global_Constants
 
 soudat_shared_mapping = {'1': 'Autopsy records', '2': 'Medical or hospital records', '3': 'Treating physician',

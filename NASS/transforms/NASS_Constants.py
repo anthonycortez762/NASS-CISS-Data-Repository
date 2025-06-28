@@ -1,4 +1,8 @@
 import numpy as np
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+
 from NASS_Injury_Value_Map import nass_injury_col_specific_value_maps
 from NASS_Patient_Value_Map import nass_patient_col_specific_value_maps
 
@@ -64,3 +68,34 @@ nass_1979_to_1981_patient_col_name_maps = {
                   'HEIGHT', 'OWGT': 'WEIGHT', 'OCC_ROLE': 'ROLE', 'SEAT_POS': 'SEATPOS', 'OHOSPDYS': 'HOSPSTAY',
                   'OTREATMT': 'TREATMNT', 'MAN_REST': 'MANUSE', 'AUT_REST': 'AUTFNCT'}
 }
+
+nass_1988_to_1996_patient_col_name_maps = {
+    'CASEID': 'CASEID', 'PSU': 'PSU', 'VEHNO': 'VEHNO', 'OCCNO': 'OCCNO', 'AGE': 'AGE', 'SEX': 'SEX', 'HEIGHT': 'HEIGHT', 
+    'WEIGHT': 'WEIGHT', 'ROLE': 'ROLE', 'PARUSE': 'PARBELTUSE', 'SEATPOS': 'SEATLOC', 'ENTRAP': 'ENTRAP', 'HOSPSTAY': 'HOSPSTAY',    
+    'OCCMOBIL': 'MOBILITY', 'DEATH': 'MORTALITY', 'TREATMNT': 'TREATMENT', 'EJECTION': 'EJECTTYPE', 'CURBWGT': 'CURBWT', 'DVTOTAL': 'DVTOTAL',
+    'EVENTS': 'EVENTS',
+    
+    'MANUSE': 'MANUSE', 'AUTFNCT': 'AUTFNCT', 'BAGDEPLY': 'PARAIRBAG', 'YEAR': 'YEAR', 'POSTURE': 'POSTURE', 
+    'MANAVAIL': 'MANAVAIL', 'MANPROPER': 'MANPROPER', 'MANFAIL': 'MANFAIL', 'AUTAVAIL': 'AUTAVAIL', 'ABELTUSE': 'ABELTUSE', 'AUTFAIL': 'AUTFAIL', 
+    'MEDFACIL': 'MEDFACIL', 'WORKDAYS': 'WORKDAYS', 'CAUSE1': 'CAUSE1', 'CAUSE2': 'CAUSE2', 'CAUSE3': 'CAUSE3', 'INJNUM': 'INJNUM', 
+    'PSUWGT': 'PSUWGT', 'NATWGT': 'NATWGT', 'RATWGT': 'RATWGT', 'STRATIF': 'STRATIF', 'MAIS': 'MAIS', 'ISS': 'ISS', 'VERSION': 'VERSION',
+    'INJNO': 'INJNO', 'ACCSEQ': 'ACCSEQ'
+}
+
+file_ending_map = {
+    'accident': 'accident', 'event': 'event', 
+    'general vehicle': 'gv', 'exterior vehicle': 've', 'interior vehicle': 'vi',
+    'occupant assessment': 'oa', 'occupant injury': 'oi', 
+}
+
+file_lvl_map = {
+    'accident': 'event', 
+    'event': 'event',
+    'general vehicle': 'vehicle',
+    'exterior vehicle': 'vehicle', 
+    'interior vehicle': 'vehicle',
+    'occupant assessment': 'occupant', 
+    'occupant injury': 'occupant'
+}
+
+file_specific_values = ['PSUWGT', 'NATWGT', 'RATWGT', 'STRATIF', 'VERSION']
