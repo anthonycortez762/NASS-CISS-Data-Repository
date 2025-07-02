@@ -1,10 +1,9 @@
-import pandas as pd
 import NASS_Utils
 import NASS_Constants
 
 # Assign raw and clean directories
-nass_raw_directory = 'NASS/raw'
-nass_clean_directory = 'NASS/clean'
+nass_raw_directory = '../raw'
+nass_clean_directory = '../clean'
 
 # Setting output filename
 nass_injury_output_filename = nass_clean_directory + '/NASS_INJURY_CLEANED_1997_TO_2015.csv'
