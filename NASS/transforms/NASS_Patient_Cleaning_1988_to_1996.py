@@ -43,7 +43,7 @@ def clean_nass_patient_files(file_ending):
         desired_columns=desired_columns,
         col_name_maps=col_name_maps
     )
-
+    # Rename each column in the dataframe to align with universal value names
     nass_patient_df_1988_to_1996 = Global_Utils.clean_column_values(
         nass_patient_df_1988_to_1996,
         NASS_Constants.nass_patient_col_specific_value_maps,
@@ -52,30 +52,37 @@ def clean_nass_patient_files(file_ending):
 
     return nass_patient_df_1988_to_1996
 
+# Combine each year's NASS patient files into a single dataframe
 def compile_annual_nass_patient_files():
     nass_pt_dict_df_1988_to_1996 = {}
 
-    for file_ending in NASS_Constants.file_ending_map.keys():        
+    # Loop through each file type in the year folder
+    for file_ending in NASS_Constants.nass_1988_to_1996_file_ending_map.keys():        
         current_file = clean_nass_patient_files(file_ending).dropna(axis=1, how='all')
+        
+        # Remove columns that are entirely 'None'
         current_file = current_file.loc[:, ~(current_file == 'None').all()]
-        for col in NASS_Constants.file_specific_values:
-            new_col_name = col + '_' + NASS_Constants.file_ending_map[file_ending]
+        
+        # Specifies which file type each variable comes from if the same variable has different values in different file types
+        for col in NASS_Constants.nass_1988_to_1996_file_specific_values:
+            new_col_name = col + '_' + NASS_Constants.nass_1988_to_1996_file_ending_map[file_ending]
             if col in current_file.columns:
                 current_file.rename(columns={col: new_col_name}, inplace=True)
         nass_pt_dict_df_1988_to_1996[file_ending] = current_file
-
+    
+    # Combine dataframes from different file endings into a single dataframe on the shared keys, 'subset'
     subset = ['PSU', 'CASEID', 'VEHNO', 'OCCNO', 'YEAR', 'INJNO', 'ACCSEQ']
 
-    event_lvl_dfs = [nass_pt_dict_df_1988_to_1996['accident'], nass_pt_dict_df_1988_to_1996['event']]    
-    event_lvl_merged = reduce(lambda left, right: merge_dfs_cleanly(left, right, on=subset, how='outer'), event_lvl_dfs)
+    # event_lvl_dfs = [nass_pt_dict_df_1988_to_1996['accident'], nass_pt_dict_df_1988_to_1996['event']]    
+    # event_lvl_merged = reduce(lambda left, right: merge_dfs_cleanly(left, right, on=subset, how='outer'), event_lvl_dfs)
 
-    veh_lvl_dfs = [nass_pt_dict_df_1988_to_1996['general vehicle'], nass_pt_dict_df_1988_to_1996['interior vehicle'], nass_pt_dict_df_1988_to_1996['exterior vehicle']]
+    veh_lvl_dfs = [nass_pt_dict_df_1988_to_1996['accident'], nass_pt_dict_df_1988_to_1996['general vehicle'], nass_pt_dict_df_1988_to_1996['interior vehicle'], nass_pt_dict_df_1988_to_1996['exterior vehicle']]
     veh_lvl_merged = reduce(lambda left, right: merge_dfs_cleanly(left, right, on=subset, how='outer'), veh_lvl_dfs)
 
-    veh_and_event_dfs = [veh_lvl_merged, event_lvl_merged]
-    veh_and_event_merged = reduce(lambda left, right: merge_dfs_cleanly(left, right, on=subset, how='outer'), veh_and_event_dfs)
+    # veh_and_event_dfs = [veh_lvl_merged, event_lvl_merged]
+    # veh_and_event_merged = reduce(lambda left, right: merge_dfs_cleanly(left, right, on=subset, how='outer'), veh_and_event_dfs)
 
-    all_lvl_dfs = [nass_pt_dict_df_1988_to_1996['occupant assessment'], veh_and_event_merged]
+    all_lvl_dfs = [nass_pt_dict_df_1988_to_1996['occupant assessment'], veh_lvl_merged]
     all_lvl_merged = reduce(lambda left, right: merge_dfs_cleanly(left, right, on=subset, how='outer'), all_lvl_dfs)
 
     all_lvl_merged.to_csv(nass_patient_output_filename, encoding='utf-8', index=False)
