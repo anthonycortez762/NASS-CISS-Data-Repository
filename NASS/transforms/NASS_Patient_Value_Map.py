@@ -256,7 +256,7 @@ nass_patient_col_specific_value_maps = {
             'ranges': [
                 {'start': 1988, 'end': 2015}
             ],
-            'mapping': {0: 'None used/svailable', 1: 'Inoperative', 2: 'Shoulder belt', 3: 'Lap belt', 
+            'mapping': {0: 'None used/available', 1: 'Inoperative', 2: 'Shoulder belt', 3: 'Lap belt', 
                         4: 'Lap and shoulder belt', 5: 'Unknown belt', 8: 'Other belt', 
                         12: 'Shoulder belt with child safety seat', 13: 'Lap belt with child safety seat', 
                         14: 'Lap and shoulder belt with child safety seat', 15: 'Unknown belt with child safety seat', 
