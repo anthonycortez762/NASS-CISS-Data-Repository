@@ -72,7 +72,7 @@ nass_1979_to_1981_patient_col_name_maps = {
 }
 
 # Injury Constants for 1997 to 2015
-nass_1997_to_2015_injury_output_columns = ['PSU', 'CASEID', 'VEHNO', 'OCCNO', 'INJNO', 'AIS', 'BODYREG', 'STRUTYPE', 'STRUSPEC', 'INJLEVEL', 'ASPECT90', 'LESION', 'SYSORG', 'SOUDAT', 'REGION90']
+nass_1997_to_2015_injury_output_columns = ['PSU', 'CASEID', 'VEHNO', 'OCCNO', 'INJNO', 'AIS', 'BODYREG', 'STRUTYPE', 'STRUSPEC', 'INJLEVEL', 'ASPECT90', 'LESION', 'SYSORG', 'SOUDAT', 'REGION90', 'RATWGT', 'YEAR']
 
 # Patient Constants for 1997 to 2015
 nass_1997_to_2015_patient_output_columns = ['PSU', 'CASEID', 'OCCNO', 'VEHNO', 'AGE', 'SEX', 'HEIGHT', 'WEIGHT', 'ROLE', 'MANUSE', 'BAGAVRPT', 'SEATPOS', 'EJECTION', 'ENTRAP', 'EYEWEAR' 'HOSPSTAY', 'OCCMOBIL' 'TREATMNT']

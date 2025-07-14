@@ -50,7 +50,6 @@ def remove_space(df, columns_to_clean):
 
 def add_ais_code(injury_file):
     ais_components = ['REGION90', 'STRUTYPE', 'STRUSPEC', 'INJLEVEL', 'AIS']
-    print(injury_file.head(20))
     injury_file[ais_components] = injury_file[ais_components].applymap(lambda x: str(int(x)) if pd.notna(x) and not x == "<NA>" else pd.NA)
 
     injury_file['STRUSPEC'] = injury_file['STRUSPEC'].str.zfill(2)
@@ -85,8 +84,5 @@ def clean_sas_files(raw_directory, file_paths, file_ending, output_df_columns, o
 
     if set(['REGION90', 'STRUTYPE', 'STRUSPEC', 'INJLEVEL', 'AIS']).issubset(final_nass_injury_df_1997_to_2015.columns):
         add_ais_code(final_nass_injury_df_1997_to_2015)
-
-    print(final_nass_injury_df_1997_to_2015.head(20))
-    print(final_nass_injury_df_1997_to_2015['AISCODE'].head(20))
 
     final_nass_injury_df_1997_to_2015.to_csv(output_filename, encoding='utf-8', index=False)
