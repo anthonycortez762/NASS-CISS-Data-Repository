@@ -1,7 +1,4 @@
 import numpy as np
-import os
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 from NASS_Injury_Value_Map import nass_injury_col_specific_value_maps
 from NASS_Patient_Value_Map import nass_patient_col_specific_value_maps

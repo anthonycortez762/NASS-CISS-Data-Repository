@@ -1,10 +1,7 @@
 import os
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 import NASS_Constants
 import pandas as pd
-from pathlib import Path
 
 def get_file_endings_nass_1988_to_1996(file_content, year):
     file_content_mapped = NASS_Constants.nass_1988_to_1996_file_ending_map[file_content]

@@ -1,6 +1,5 @@
 import os
 import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 import NASS_Constants
 import NASS_Utils
@@ -9,8 +8,8 @@ import pandas as pd
 from functools import reduce
 
 # Assign raw and clean directories
-nass_raw_directory = os.path.join('.', 'NASS', 'raw')
-nass_clean_directory = os.path.join('.', 'NASS', 'clean')
+nass_raw_directory = os.path.join('..', 'raw')
+nass_clean_directory = os.path.join('..', 'clean')
 
 # Setting output filename
 nass_patient_output_filename = nass_clean_directory + '/NASS_PATIENT_CLEANED_1988_to_1996.csv'
