@@ -241,4 +241,4 @@ fabric.properties
 
 # Additional Files to Ignore
 .DS_Store
-
+.vscode
