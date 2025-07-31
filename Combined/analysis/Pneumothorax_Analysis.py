@@ -14,7 +14,7 @@ def categorize_case_wgt(row):
 
 # Assign raw and clean directories
 injury_clean_directory = '../../CISS/clean/INJURY_CLEANED.csv'
-analysis_df = pd.read_csv(injury_clean_directory, dtype={'CASEWGT': float, 'AISCODE': str, 'CASEID': str, 'VEHNO': str, 'OCCNO': str}) #, encoding=file_encoding, usecols=use_cols_list[index])
+analysis_df = pd.read_csv(injury_clean_directory, dtype={'CASEWGT': float, 'AISCODE': str, 'CASEID': str, 'VEHNO': str, 'OCCNO': str})
 
 
 analysis_df['PATIENTID'] = analysis_df['CASEID'] + '_' + analysis_df['VEHNO'] + '_' + analysis_df['OCCNO']
@@ -25,8 +25,6 @@ patient_ptx_df = analysis_df.groupby(['PATIENTID', 'YEAR', 'CASEWGT']).agg(
     PTX=('PTX', 'max'),
     PTXCASEWGT=('PTXCASEWGT', 'max')
 ).reset_index()
-
-print(patient_ptx_df)
 
 graph_df = patient_ptx_df.groupby(['YEAR']).agg(
     TOTALPATIENTS=('PATIENTID', 'count'),
@@ -43,5 +41,3 @@ plt.xlabel("Year")
 plt.ylabel("Total Patients")
 
 plt.show()
-
-print(graph_df)
