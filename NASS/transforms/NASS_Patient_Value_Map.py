@@ -213,6 +213,15 @@ nass_patient_col_specific_value_maps = {
                         '5': 'Treatment at scene - nontransported', '6': 'Treatment later'
                         } | Global_Constants.treatment_shared_mapping,
         },
+        {
+            'ranges': [
+                {'start': 1988, 'end': 2015},
+            ],
+            'mapping': {'0': 'No Treatment', '1': 'Fatal', '2': 'Fatal - Ruled Disease',
+                        '3': 'Hospitalized', '4': 'Transported and Released', '5': 'Treatment at Scene - Not Transported',
+                        '6': 'Treatment - Later', '7': 'Treatment - Other', '8': 'Transported - Unknown Treatment',
+                        'N': 'Not Collected', 'U': 'Unknown'},
+        }
     ],
     'HOSPSTAY': [
         {
@@ -423,17 +432,6 @@ nass_patient_col_specific_value_maps = {
                 {'start': 1988, 'end': 2015},
             ],
             'mapping': {'0': 'Not Fatal', '96': 'Fatal - Ruled Disease', 'U': 'Unknown'},
-        }
-    ],
-    'TREATMNT': [
-        {
-            'ranges': [
-                {'start': 1988, 'end': 2015},
-            ],
-            'mapping': {'0': 'No Treatment', '1': 'Fatal', '2': 'Fatal - Ruled Disease',
-                        '3': 'Hospitalized', '4': 'Transported and Released', '5': 'Treatment at Scene - Not Transported',
-                        '6': 'Treatment - Later', '7': 'Treatment - Other', '8': 'Transported - Unknown Treatment',
-                        'N': 'Not Collected', 'U': 'Unknown'},
         }
     ],
     'MEDFACIL': [

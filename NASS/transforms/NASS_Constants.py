@@ -6,7 +6,6 @@ nass_global_value_map = {np.nan: None, 'U': 'Unknown', 'A': 'Not applicable'}
 nass_1979_path = 'NASS_1979'
 nass_1979_to_1987_paths = ['NASS_1979', 'NASS_1980', 'NASS_1981', 'NASS_1982', 'NASS_1983', 'NASS_1984', 'NASS_1985',
                            'NASS_1986', 'NASS_1987']
-nass_1979_to_1987_occupant_file_ending = 'occupant.csv'
 nass_1988_to_1996_paths = ['NASS_1988', 'NASS_1989', 'NASS_1990', 'NASS_1991', 'NASS_1992', 'NASS_1993', 'NASS_1994',
                            'NASS_1995', 'NASS_1996']
 nass_occupant_file_ending = 'occupant.csv'
@@ -75,12 +74,20 @@ nass_1979_to_1981_patient_col_name_maps = {
 nass_1997_to_2015_injury_output_columns = ['PSU', 'CASEID', 'VEHNO', 'OCCNO', 'INJNO', 'AIS', 'BODYREG', 'STRUTYPE', 
                                            'STRUSPEC', 'INJLEVEL', 'ASPECT90', 'LESION', 'SYSORG', 'SOUDAT', 'REGION90', 
                                            'RATWGT', 'YEAR']
+nass_1997_to_2015_injury_columns_to_convert_to_int = ['PSU', 'VEHNO', 'OCCNO', 'INJNO', 'AIS', 'STRUTYPE', 'STRUSPEC',
+                                                      'INJLEVEL', 'ASPECT90', 'SOUDAT', 'REGION90']
+
 
 # Patient Constants for 1997 to 2015
 nass_1997_to_2015_patient_output_columns = ['PSU', 'CASEID', 'OCCNO', 'VEHNO', 'AGE', 'SEX', 'HEIGHT', 'WEIGHT', 'ROLE', 
-                                            'MANUSE', 'BAGAVRPT', 'SEATPOS', 'EJECTION', 'ENTRAP', 'EYEWEAR' 'HOSPSTAY', 
-                                            'OCCMOBIL' 'TREATMNT', 'BAGAVAIL', 'BAGDEPLY', 'PARUSE', 'MANAVAIL', 'ABELTAVL', 
-                                            'ABELTUSE', 'MANFAIL', 'ABLTFAIL', 'CURBWGT', 'DVTOTAL', 'POSTURE', 'EVENTS', 
-                                            'PSUWGT', 'NATWGT', 'RATWGT', 'STRATIF', 'VERSION', 'HOSPSTAY', 'OCCMOBIL', 'DEATH', 
-                                            'TREATMNT', 'MEDFACIL', 'CAUSE1', 'CAUSE2', 'CAUSE3', 'INJNUM', 'MAIS', 'ISS', 
-                                            'INJSEV', 'WORKDAYS', 'INLOC', 'INCOMP', 'INMAG', 'CDRIR']
+                                            'MANUSE', 'BAGAVRPT', 'SEATPOS', 'EJECTION', 'ENTRAP', 'EYEWEAR', 'HOSPSTAY',
+                                            'OCCMOBIL', 'TREATMNT', 'BAGAVAIL', 'BAGDEPLY', 'PARUSE', 'MANAVAIL',
+                                            'MANFAIL', 'POSTURE', 'NATWGT', 'RATWGT', 'STRATIF', 'VERSION', 'DEATH',
+                                            'MEDFACIL', 'CAUSE1', 'CAUSE2', 'CAUSE3', 'INJNUM', 'MAIS', 'ISS', 'INJSEV',
+                                            'WORKDAYS']
+nass_1997_to_2015_patient_columns_to_convert_to_int = ['PSU', 'VEHNO', 'OCCNO', 'AGE', 'SEX', 'HEIGHT', 'WEIGHT',
+                                                       'ROLE', 'MANUSE', 'BAGAVRPT', 'SEATPOS', 'EJECTION', 'ENTRAP',
+                                                       'HOSPSTAY', 'OCCMOBIL', 'TREATMNT', 'BAGAVAIL', 'BAGDEPLY',
+                                                       'PARUSE', 'MANAVAIL', 'MANFAIL', 'POSTURE', 'VERSION', 'DEATH',
+                                                       'MEDFACIL', 'CAUSE1', 'CAUSE2', 'CAUSE3', 'INJNUM', 'MAIS',
+                                                       'ISS', 'INJSEV', 'WORKDAYS']

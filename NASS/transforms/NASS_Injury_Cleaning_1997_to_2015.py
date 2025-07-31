@@ -1,5 +1,6 @@
 import NASS_Utils
 import NASS_Constants
+import Global_Utils
 
 # Assign raw and clean directories
 nass_raw_directory = '../raw'
@@ -10,10 +11,16 @@ nass_injury_output_filename = nass_clean_directory + '/NASS_INJURY_CLEANED_1997_
 
 # Using the clean_sas_files to loop through the occupant injury sas table for each year from
 # 1997 to 2015 and combining all these datasets to output an encompassing injury csv dataset 
-NASS_Utils.clean_sas_files(nass_raw_directory, 
-                           NASS_Constants.nass_1997_to_2015_paths, 
-                           NASS_Constants.nass_1997_to_2015_injury_file_ending, 
-                           NASS_Constants.nass_1997_to_2015_injury_output_columns,
-                           NASS_Constants.nass_injury_col_specific_value_maps,
-                           NASS_Constants.nass_global_value_map, 
-                           nass_injury_output_filename)
+nass_injury_df_1997_to_2015 = NASS_Utils.clean_sas_files(nass_raw_directory,
+                                                         NASS_Constants.nass_1997_to_2015_paths,
+                                                         NASS_Constants.nass_1997_to_2015_injury_file_ending,
+                                                         NASS_Constants.nass_1997_to_2015_injury_columns_to_convert_to_int,
+                                                         NASS_Constants.nass_1997_to_2015_injury_output_columns)
+
+nass_injury_df_1997_to_2015 = NASS_Utils.add_ais_code(nass_injury_df_1997_to_2015)
+
+nass_injury_df_1997_to_2015 = Global_Utils.clean_column_values(nass_injury_df_1997_to_2015,
+                                                               NASS_Constants.nass_injury_col_specific_value_maps,
+                                                               NASS_Constants.nass_global_value_map)
+
+nass_injury_df_1997_to_2015.to_csv(nass_injury_output_filename, encoding='utf-8', index=False)

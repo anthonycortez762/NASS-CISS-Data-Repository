@@ -23,8 +23,8 @@ nass_injury_col_specific_value_maps = {'AIS': [
         'ranges': [
             {'start': 1997, 'end': 2015},
         ],
-        'mapping': {1: 'Minor Injury', 2: 'Moderate Injury', 3: 'Serious Injury', 4: 'Severe Injury', 
-                    5: 'Critical Injury', 6: 'Maximum Injury', 7: 'Injury, Unknown Severity'},
+        'mapping': {'1': 'Minor Injury', '2': 'Moderate Injury', '3': 'Serious Injury', '4': 'Severe Injury',
+                    '5': 'Critical Injury', '6': 'Maximum Injury', '7': 'Injury, Unknown Severity'},
     }    
 ], 'ASPECT': [
     {
@@ -49,15 +49,16 @@ nass_injury_col_specific_value_maps = {'AIS': [
         'ranges': [
             {'start': 1997, 'end': 2008},
         ],
-        'mapping': {0: 'Whole Region', 1: 'Right', 2: 'Left', 3: 'Bilateral', 4: 'Central', 5: 'Anterior', 6: 'Posterior', 
-                    7: 'Superior', 8: 'Inferior'}
+        'mapping': {'0': 'Whole Region', '1': 'Right', '2': 'Left', '3': 'Bilateral', '4': 'Central', '5': 'Anterior',
+                    '6': 'Posterior', '7': 'Superior', '8': 'Inferior'}
     },
     {
         'ranges': [
             {'start': 2009, 'end': 2015},
         ],
-        'mapping': {0: 'Whole Region', 1: 'Right', 2: 'Left', 3: 'Bilateral', 4: 'Central', 5: 'Anterior/Front/Ventral', 
-                    6: 'Posterior/Back/Dorsal', 7: 'Superior/Upper', 8: 'Inferior/Lower'}
+        'mapping': {'0': 'Whole Region', '1': 'Right', '2': 'Left', '3': 'Bilateral', '4': 'Central',
+                    '5': 'Anterior/Front/Ventral', '6': 'Posterior/Back/Dorsal', '7': 'Superior/Upper',
+                    '8': 'Inferior/Lower'}
     }    
 ], 'SYSORG': [
     {
@@ -157,16 +158,17 @@ nass_injury_col_specific_value_maps = {'AIS': [
         'ranges': [
             {'start': 1988, 'end': 2006},
         ],
-        'mapping': {1: 'Autopsy Records', 2: 'Medical or Hospital Records', 3: 'Emergency Room Records', 
-                    4: 'Private Physician or Clinic', 5: 'Lay Coroner Report', 6: 'EMS Personnel', 7: 'Interviewee', 
-                    8: 'Other Source', 9: 'Police'}
+        'mapping': {'1': 'Autopsy Records', '2': 'Medical or Hospital Records', '3': 'Emergency Room Records',
+                    '4': 'Private Physician or Clinic', '5': 'Lay Coroner Report', '6': 'EMS Personnel',
+                    '7': 'Interviewee', '8': 'Other Source', '9': 'Police'}
     },
     {
         'ranges': [
             {'start': 2007, 'end': 2015},
         ],
-        'mapping': {2: 'Medical or Hospital Records', 3: 'Emergency Room Records', 4: 'Private Physician or Clinic', 
-                    5: 'Lay Coroner Report', 6: 'EMS Personnel', 7: 'Interviewee', 8: 'Other Source', 9: 'Police', 
-                    16: 'Internal Autopsy', 17: 'External Autopsy'}
+        'mapping': {'2': 'Medical or Hospital Records', '3': 'Emergency Room Records',
+                    '4': 'Private Physician or Clinic', '5': 'Lay Coroner Report', '6': 'EMS Personnel',
+                    '7': 'Interviewee', '8': 'Other Source', '9': 'Police', '16': 'Internal Autopsy',
+                    '17': 'External Autopsy'}
     }
 ]}
