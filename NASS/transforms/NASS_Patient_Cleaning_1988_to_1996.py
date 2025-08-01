@@ -8,8 +8,8 @@ import pandas as pd
 from functools import reduce
 
 # Assign raw and clean directories
-nass_raw_directory = os.path.join('..', 'raw')
-nass_clean_directory = os.path.join('..', 'clean')
+nass_raw_directory = '../raw'
+nass_clean_directory = '../clean'
 
 # Setting output filename
 nass_patient_output_filename = nass_clean_directory + '/NASS_PATIENT_CLEANED_1988_to_1996.csv'
