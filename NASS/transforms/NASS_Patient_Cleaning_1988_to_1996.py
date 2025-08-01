@@ -72,14 +72,8 @@ def compile_annual_nass_patient_files():
     # Combine dataframes from different file endings into a single dataframe on the shared keys, 'subset'
     subset = ['PSU', 'CASEID', 'VEHNO', 'OCCNO', 'YEAR', 'INJNO', 'ACCSEQ']
 
-    # event_lvl_dfs = [nass_pt_dict_df_1988_to_1996['accident'], nass_pt_dict_df_1988_to_1996['event']]    
-    # event_lvl_merged = reduce(lambda left, right: merge_dfs_cleanly(left, right, on=subset, how='outer'), event_lvl_dfs)
-
     veh_lvl_dfs = [nass_pt_dict_df_1988_to_1996['accident'], nass_pt_dict_df_1988_to_1996['general vehicle'], nass_pt_dict_df_1988_to_1996['interior vehicle'], nass_pt_dict_df_1988_to_1996['exterior vehicle']]
     veh_lvl_merged = reduce(lambda left, right: merge_dfs_cleanly(left, right, on=subset, how='outer'), veh_lvl_dfs)
-
-    # veh_and_event_dfs = [veh_lvl_merged, event_lvl_merged]
-    # veh_and_event_merged = reduce(lambda left, right: merge_dfs_cleanly(left, right, on=subset, how='outer'), veh_and_event_dfs)
 
     all_lvl_dfs = [nass_pt_dict_df_1988_to_1996['occupant assessment'], veh_lvl_merged]
     all_lvl_merged = reduce(lambda left, right: merge_dfs_cleanly(left, right, on=subset, how='outer'), all_lvl_dfs)
