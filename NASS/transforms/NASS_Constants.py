@@ -1,4 +1,5 @@
 import numpy as np
+
 from NASS_Injury_Value_Map import nass_injury_col_specific_value_maps
 from NASS_Patient_Value_Map import nass_patient_col_specific_value_maps
 
@@ -12,7 +13,7 @@ nass_occupant_file_ending = 'occupant.csv'
 nass_oi_file_ending = 'oi.csv'
 
 # Desired injury column names 1988-1996
-injury_cols = ["PSU", "CASEID", "VEHNO", "OCCNO", "INJNO", "AIS", "ASPECT", "BODYREG", "LESION", "SYSORG", "SOUDAT"]
+injury_cols = ["PSU", "CASEID", "VEHNO", "OCCNO", "INJNO", "AIS", "ASPECT", "BODYREG", "LESION", "SYSORG", "SOUDAT", "REGION90", "STRUTYPE", "STRUSPEC", "INJLEVEL", "RATWGT", "YEAR"]
 
 # Injury Constants for 1979 to 1981
 nass_1979_to_1981_injury_col_name_maps = {
@@ -64,3 +65,35 @@ nass_1979_to_1981_patient_col_name_maps = {
                   'HEIGHT', 'OWGT': 'WEIGHT', 'OCC_ROLE': 'ROLE', 'SEAT_POS': 'SEATPOS', 'OHOSPDYS': 'HOSPSTAY',
                   'OTREATMT': 'TREATMNT', 'MAN_REST': 'MANUSE', 'AUT_REST': 'AUTFNCT'}
 }
+
+nass_1988_to_1996_patient_col_name_maps = {
+    'CASEID': 'CASEID', 'PSU': 'PSU', 'VEHNO': 'VEHNO', 'OCCNO': 'OCCNO', 'AGE': 'AGE', 'SEX': 'SEX', 'HEIGHT': 'HEIGHT', 
+    'WEIGHT': 'WEIGHT', 'ROLE': 'ROLE', 'PARUSE': 'PARBELTUSE', 'SEATPOS': 'SEATLOC', 'ENTRAP': 'ENTRAP', 'HOSPSTAY': 'HOSPSTAY',    
+    'OCCMOBIL': 'MOBILITY', 'DEATH': 'MORTALITY', 'TREATMNT': 'TREATMENT', 'EJECTION': 'EJECTTYPE', 'CURBWGT': 'CURBWT', 'DVTOTAL': 'DVTOTAL',
+    'EVENTS': 'EVENTS', 'BAGAVAIL': 'BAGAVAIL', 'ABELTAVL': 'ABELTAVL', 'INJSEV': 'INJSEV', 
+    
+    'MANUSE': 'MANUSE', 'AUTFNCT': 'AUTFNCT', 'BAGDEPLY': 'PARAIRBAG', 'YEAR': 'YEAR', 'POSTURE': 'POSTURE', 
+    'MANAVAIL': 'MANAVAIL', 'MANPROPER': 'MANPROPER', 'MANFAIL': 'MANFAIL', 'AUTAVAIL': 'AUTAVAIL', 'ABELTUSE': 'ABELTUSE', 'AUTFAIL': 'AUTFAIL', 
+    'MEDFACIL': 'MEDFACIL', 'WORKDAYS': 'WORKDAYS', 'CAUSE1': 'CAUSE1', 'CAUSE2': 'CAUSE2', 'CAUSE3': 'CAUSE3', 'INJNUM': 'INJNUM', 
+    'PSUWGT': 'PSUWGT', 'NATWGT': 'NATWGT', 'RATWGT': 'RATWGT', 'STRATIF': 'STRATIF', 'MAIS': 'MAIS', 'ISS': 'ISS', 'VERSION': 'VERSION',
+    'INJNO': 'INJNO', 'ACCSEQ': 'ACCSEQ',
+
+    'INLOC1': 'INLOC1', 'INCOMP1': 'INCOMP1', 'INMAG1': 'INMAG1', 'CDRIR1': 'CDRIR1', 
+    'INLOC2': 'INLOC2', 'INCOMP2': 'INCOMP2', 'INMAG2': 'INMAG2', 'CDRIR2': 'CDRIR2', 
+    'INLOC3': 'INLOC3', 'INCOMP3': 'INCOMP3', 'INMAG3': 'INMAG3', 'CDRIR3': 'CDRIR3', 
+    'INLOC4': 'INLOC4', 'INCOMP4': 'INCOMP4', 'INMAG4': 'INMAG4', 'CDRIR4': 'CDRIR4', 
+    'INLOC5': 'INLOC5', 'INCOMP5': 'INCOMP5', 'INMAG5': 'INMAG5', 'CDRIR5': 'CDRIR5', 
+    'INLOC6': 'INLOC6', 'INCOMP6': 'INCOMP6', 'INMAG6': 'INMAG6', 'CDRIR6': 'CDRIR6', 
+    'INLOC7': 'INLOC7', 'INCOMP7': 'INCOMP7', 'INMAG7': 'INMAG7', 'CDRIR7': 'CDRIR7', 
+    'INLOC8': 'INLOC8', 'INCOMP8': 'INCOMP8', 'INMAG8': 'INMAG8', 'CDRIR8': 'CDRIR8', 
+    'INLOC9': 'INLOC9', 'INCOMP9': 'INCOMP9', 'INMAG9': 'INMAG9', 'CDRIR9': 'CDRIR9', 
+    'INLOC10': 'INLOC10', 'INCOMP10': 'INCOMP10', 'INMAG10': 'INMAG10', 'CDRIR10': 'CDRIR10',
+}
+
+nass_1988_to_1996_file_ending_map = {
+    'accident': 'accident', 'event': 'event', 
+    'general vehicle': 'gv', 'exterior vehicle': 've', 'interior vehicle': 'vi',
+    'occupant assessment': 'oa', 'occupant injury': 'oi', 
+}
+
+nass_1988_to_1996_file_specific_values = ['PSUWGT', 'NATWGT', 'RATWGT', 'STRATIF', 'VERSION']
