@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import NASS_Constants
 
 
 def rename_and_union_dfs(raw_directory, file_paths, file_ending, desired_columns, col_name_maps):
@@ -53,8 +54,9 @@ def clean_sas_files(raw_directory, file_paths, file_ending, columns_to_convert_t
 
         # Converts float values to integers if whole numbers, then converts all columns to string type
         for col in columns_to_convert_to_int:
-            output_df[col] = output_df[col].astype("Int64").astype(str).replace('<NA>', None)
-        output_df = output_df.astype(str)
+            output_df[col] = (output_df[col].astype("Int64").astype(str).replace(
+                              NASS_Constants.nass_1997_to_2015_null_values, None))
+        output_df = output_df.astype(str).replace(NASS_Constants.nass_1997_to_2015_null_values, None)
 
         output_df = output_df.filter(output_df_columns)
         remove_space(output_df, output_df.columns.to_list())

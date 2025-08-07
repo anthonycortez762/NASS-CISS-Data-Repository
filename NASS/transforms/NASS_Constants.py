@@ -15,6 +15,7 @@ nass_1997_to_2015_paths = ['NASS_1997', 'NASS_1998', 'NASS_1999', 'NASS_2000', '
                            'NASS_2011', 'NASS_2012', 'NASS_2013', 'NASS_2014', 'NASS_2015']
 nass_1997_to_2015_injury_file_ending = 'oi.sas7bdat'
 nass_1997_to_2015_occupant_file_ending = 'oa.sas7bdat'
+nass_1997_to_2015_null_values = ['<NA>', 'None', 'nan']
 
 # Desired injury column names 1988-1996
 injury_cols = ["PSU", "CASEID", "VEHNO", "OCCNO", "INJNO", "AIS", "ASPECT", "BODYREG", "LESION", "SYSORG", "SOUDAT"]
@@ -87,7 +88,7 @@ nass_1997_to_2015_patient_output_columns = ['PSU', 'CASEID', 'OCCNO', 'VEHNO', '
                                             'WORKDAYS']
 nass_1997_to_2015_patient_columns_to_convert_to_int = ['PSU', 'VEHNO', 'OCCNO', 'AGE', 'SEX', 'HEIGHT', 'WEIGHT',
                                                        'ROLE', 'MANUSE', 'BAGAVRPT', 'SEATPOS', 'EJECTION', 'ENTRAP',
-                                                       'HOSPSTAY', 'OCCMOBIL', 'TREATMNT', 'BAGAVAIL', 'BAGDEPLY',
-                                                       'PARUSE', 'MANAVAIL', 'MANFAIL', 'POSTURE', 'VERSION', 'DEATH',
-                                                       'MEDFACIL', 'CAUSE1', 'CAUSE2', 'CAUSE3', 'INJNUM', 'MAIS',
-                                                       'ISS', 'INJSEV', 'WORKDAYS']
+                                                       'EYEWEAR', 'HOSPSTAY', 'OCCMOBIL', 'TREATMNT', 'BAGAVAIL',
+                                                       'BAGDEPLY', 'PARUSE', 'MANAVAIL', 'MANFAIL', 'POSTURE',
+                                                       'VERSION', 'DEATH', 'MEDFACIL', 'CAUSE1', 'CAUSE2', 'CAUSE3',
+                                                       'INJNUM', 'MAIS', 'ISS', 'INJSEV', 'WORKDAYS']

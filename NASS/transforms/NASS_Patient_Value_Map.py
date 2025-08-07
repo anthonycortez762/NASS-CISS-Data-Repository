@@ -86,7 +86,7 @@ nass_patient_col_specific_value_maps = {
             'ranges': [
                 {'start': 1995, 'end': 2009},
             ],
-            'mapping': {'0': 'None available', '1': 'airbag availability/function not indicated by police', 
+            'mapping': {'0': 'None available', '1': 'Airbag availability/function not indicated by police',
                         '2': 'Deployed', '3': 'Not deployed', '4': 'Unknown if deployed', 'U': 'Unknown'}
         },
         {
@@ -189,6 +189,15 @@ nass_patient_col_specific_value_maps = {
             'mapping': {'0': 'None', '1': 'Complete ejection', '2': 'Partial ejection', '3': 'Ejection, unknown degree',
                         'U': 'Unknown'},
         },
+    ],
+    'EYEWEAR': [
+        {
+            'ranges': [
+                {'start': 1995, 'end': 2015},
+            ],
+            'mapping': {'0': 'Not Equip/Avail', '1': 'No', '2': 'Eye/Sun Glasses', '3': 'Contact Lenses',
+                        '4': 'Deploy/Unk Eyew', '7': 'Not Deployed', '8': 'Unk If Deployed', 'U': 'Unknown'},
+        }
     ],
     'TREATMNT': [
         {
