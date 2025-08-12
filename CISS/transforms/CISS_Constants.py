@@ -6,8 +6,8 @@ from CISS_Intrusion_Value_Map import ciss_intrusion_col_specific_value_maps
 ciss_global_value_map = {}
 
 # CISS Injury Constants
-injury_base_column_list = ['CASEID', 'CASENO', 'VEHNO', 'OCCNO', 'INJNO']
-injury_additional_column_list = ['AISCODE', 'AIS', 'REGION', 'STRUTYPE', 'STRUSPEC', 'INJLEVEL']
+injury_base_column_list = ['PSU', 'CASEID', 'CASENO', 'VEHNO', 'OCCNO', 'INJNO']
+injury_additional_column_list = ['AISCODE', 'AIS', 'REGION', 'STRUTYPE', 'STRUSPEC', 'INJLEVEL', 'CASEWGT']
 injury_localizer_additional_column_list = ['L1', 'L2', 'LDEF']
 injury_join_columns_list = [injury_base_column_list]
 injury_use_cols_list = [injury_base_column_list + injury_additional_column_list,
