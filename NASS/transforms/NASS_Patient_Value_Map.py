@@ -405,20 +405,14 @@ nass_patient_col_specific_value_maps = {
                         '7': 'Combination of Above', '8': 'Other Manual Belt Failure', '9': 'Unknown'},
         },
     ],
-    'MANFAIL': [
+    'MANPROPR': [
         {
             'ranges': [
-                {'start': 1988, 'end': 1989},
+                {'start': 1988, 'end': 2015},
             ],
-            'mapping': {'0': 'Not Used or Not Available', '1': 'No Manual Belt Failures', '2': 'Manual Belt Failures', '9': 'Unknown'},
-        },
-        {
-            'ranges': [
-                {'start': 1990, 'end': 1996},
-            ],
-            'mapping': {'0': 'Not Used or Not Available', '1': 'No Manual Belt Failures', '2': 'Torn Webbing', '3': 'Broken Buckle or Latchplate',
-                        '4': 'Upper Anchorage Separated', '5': 'Other Anchorage Separated', '6': 'Broken Retractor',
-                        '7': 'Combination of Above', '8': 'Other Manual Belt Failure', '9': 'Unknown'},
+            'mapping': {'0': 'Not Used or Not Available', '1': 'Used Properly', '2': 'Used Okay with Child Seat', '3': 'Shoulder Belt Under Arm',
+                        '4': 'Shoulder Belt Behind Seat', '5': 'Around More Than One Person', '6': 'Belt on Abdomen', '7': 'Improper with Child Seat',
+                        '8': 'Other Improper Use', 'U': 'Unknown'},
         },
     ],
     'MAIS': [
