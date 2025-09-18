@@ -454,6 +454,17 @@ nass_patient_col_specific_value_maps = {
                         '9': 'Unknown'},
         },
     ],
+    'ABLTPROP': [
+        {
+            'ranges': [
+                {'start': 1991, 'end': 1996},
+            ],
+            'mapping': {'0': 'Not Equipped/Not Available', '1': 'Used Properly', '2': 'Use Okay with Child Seat', 
+                        '3': 'Shoulder Belt Under Arm', '4': 'Shoulder Belt Behind Back', '5': 'Around More Than One Person',
+                        '6': 'Belt on Abdomen', '7': 'Improper with Child Seat', '8': 'Other Improper Use',
+                        '9': 'Unknown'},
+        },
+    ],
     'MEDFACIL': [
         {
             'ranges': [
