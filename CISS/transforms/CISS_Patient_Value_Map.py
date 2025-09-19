@@ -112,6 +112,16 @@ ciss_patient_col_specific_value_maps = {
                         } | Global_Constants.belt_use_shared_mapping
         }
     ],
+    'BELTUSE': [
+        {
+            'ranges': Global_Constants.common_ciss_year_range,
+            'mapping': {'0': 'None used/available', '1': 'Inoperative', '2': 'Shoulder belt', '3': 'Lap belt', 
+                        '4': 'Lap and shoulder belt', '5': 'Unknown belt', '8': 'Other belt', 
+                        '12': 'Shoulder belt with child safety seat', '13': 'Lap belt with child safety seat', 
+                        '14': 'Lap and shoulder belt with child safety seat', '15': 'Unknown belt with child safety seat', 
+                        '18': 'Other belt with child safety seat', '99': 'Unknown if used'},               
+        }
+    ],
     'CURBWT': [
         {
             'ranges': Global_Constants.common_ciss_year_range,

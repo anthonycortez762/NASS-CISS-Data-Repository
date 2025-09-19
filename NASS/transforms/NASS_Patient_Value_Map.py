@@ -1,5 +1,83 @@
 import Global_Constants
 
+intrusion_location_map = [
+    {
+        'ranges': [
+            {'start': 1988, 'end': 2015},
+        ],
+        'mapping': {'11': 'Front Seat Left', '12': 'Front Seat Middle', '13': 'Front Seat Right', 
+                    '21': 'Second Seat Left', '22': 'Second Seat Middle', '23': 'Second Seat Right',
+                    '31': 'Third Seat Left', '32': 'Third Seat Middle', '33': 'Third Seat Right',
+                    '41': 'Fourth Seat Left', '42': 'Fourth Seat Middle', '43': 'Fourth Seat Right',
+                    '88': 'Multiple or Other Severe Intrusions', '97': 'Catastrophic', 
+                    '98': 'Other Enclosed Area', 'U': 'Unknown'},
+    }
+]
+
+intrusion_component_map = [
+    {
+        'ranges': [
+            {'start': 1997, 'end': 2009},
+        ],
+        'mapping': {'1': 'Steering Assembly', '2': 'Instrument Panel Left', '3': 'Instrument Panel Center', 
+                    '4': 'Instrument Panel Right', '5': 'Toe Pan', '6': 'A-Pillar', '7': 'B-Pillar', 
+                    '8': 'C-Pillar', '9': 'D-Pillar', '10': 'Side Panel', '11': 'Door Panel', 
+                    '12': 'Rear Side Panel', '13': 'Roof or Convertible Top', '14': 'Roof Side Rail', 
+                    '15': 'Windshield', '16': 'Windshield Header', '17': 'Window Frame',
+                    '18': 'Floor Pan', '19': 'Backlight Header', '20': 'Front Seat Back',
+                    '21': 'Second Seat Back', '22': 'Third Seat Back', '23': 'Fourth Seat Back',
+                    '24': 'Fifth Seat Back', '25': 'Seat Cushion', '26': 'Back Door/Panel',
+                    '27': 'Other Component', '30': 'Hood', '31': 'Outside Surface of Vehicle', 
+                    '32': 'Other Exterior Object in the Environment', '33': 'Unknown Exterior Object', 
+                    '34': 'Grab Handles', '35': 'Door/Forward Upper Quadrants', '36': 'Door/Forward Lower Quadrants',
+                    '37': 'Door/Rear Upper Quadrants', '38': 'Door/Rear Lower Quadrants', 
+                    '41': 'Door/Undetermined Location', '96': 'Multiple/Other Severe Intrusions',
+                    '97': 'Catastrophic', '98': 'Intrusion of Unlisted Component',
+                    'U': 'Unknown'},
+    },
+    {
+        'ranges': [
+            {'start': 2010, 'end': 2015},
+        ],
+        'mapping': {'1': 'Steering Assembly', '2': 'Instrument Panel Left', '3': 'Instrument Panel Center', 
+                    '4': 'Instrument Panel Right', '5': 'Toe Pan', '6': 'A-Pillar', '7': 'B-Pillar', 
+                    '8': 'C-Pillar', '9': 'D-Pillar', '11': 'Door Panel', 
+                    '12': 'Side Panel', '13': 'Roof or Convertible Top', '14': 'Roof Side Rail', 
+                    '15': 'Windshield', '16': 'Windshield Header', '17': 'Window Frame',
+                    '18': 'Floor Pan', '19': 'Backlight Header', '20': 'Front Seat Back',
+                    '21': 'Second Seat Back', '22': 'Third Seat Back', '23': 'Fourth Seat Back',
+                    '24': 'Fifth Seat Back', '25': 'Seat Cushion', '26': 'Back Door/Panel',
+                    '27': 'Other Component', '30': 'Hood', '31': 'Outside Surface of Vehicle', 
+                    '32': 'Other Exterior Object in the Environment', '33': 'Unknown Exterior Object', 
+                    '34': 'Grab Handles', '35': 'Door/Forward Upper Quadrants', '36': 'Door/Forward Lower Quadrants',
+                    '37': 'Door/Rear Upper Quadrants', '38': 'Door/Rear Lower Quadrants', 
+                    '41': 'Door/Undetermined Location', '96': 'Multiple/Other Severe Intrusions',
+                    '97': 'Catastrophic', '98': 'Intrusion of Unlisted Component',
+                    'U': 'Unknown'},
+    },
+]
+
+intrusion_magnitude_map = [
+    {
+        'ranges': [
+            {'start': 1997, 'end': 2015},
+        ],
+        'mapping': {'1': '> 3 cm but < 8 cm', '2': '> 8 cm but < 15 cm', '3': '> 15 cm but < 30 cm', 
+                    '4': '> 30 cm but < 46 cm', '5': '> 46 cm but < 61 cm', '6': '> 61 cm', 
+                    '7': 'Catastrophic', '8': 'Multiple/Severe Other Intrusions', 'U': 'Unknown'},
+    },
+]
+
+dominant_crush_direction_map = [
+    {
+        'ranges': [
+            {'start': 1997, 'end': 2015},
+        ],
+        'mapping': {'1': 'Vertical', '2': 'Longitudinal', '3': 'Lateral', '7': 'Catastrophic', 
+                    '8': 'Multiple/Severe Other Intrusions', 'U': 'Unknown'},
+    }
+]    
+
 nass_patient_col_specific_value_maps = {
     'AGE': [
         {
@@ -518,5 +596,67 @@ nass_patient_col_specific_value_maps = {
             'mapping': {'0': 'No Work Days Lost', '61': '61 Days or More', '62': 'Fatally Injured',
                         '97': 'Not Working Prior', 'U': 'Unknown'},
         }
-    ]
+    ],
+    'MANPROPR': [
+        {
+            'ranges': [
+                {'start': 1993, 'end': 2002},
+            ],
+            'mapping': {'0': 'None Used/Available', '1': 'Used Properly', '2': 'Used Properly with Child Seat',
+                        '3': 'Shoulder Belt Under Arm', '4': 'Shoulder Belt Behind Seat',
+                        '5': 'Around >1 Person', '6': 'Belt on Abdomen', '7': 'Improper Use w/ Child Seat',
+                        '8': 'Other Improper Use', 'U': 'Unknown'},
+        }
+    ],
+    'ABLTPROP': [
+        {
+            'ranges': [
+                {'start': 1993, 'end': 2002},
+            ],
+            'mapping': {'0': 'None Equipped/Available', '1': 'Used Properly', '2': 'Used Properly with Child Seat',
+                        '3': 'Shoulder Belt Under Arm', '4': 'Shoulder Belt Behind Seat',
+                        '5': 'Around >1 Person', '6': 'Belt on Abdomen', '7': 'Improper Use w/ Child Seat',
+                        '8': 'Other Improper Use', 'U': 'Unknown'},
+        }
+    ],
+    'INLOC1': intrusion_location_map,
+    'INLOC2': intrusion_location_map,
+    'INLOC3': intrusion_location_map,
+    'INLOC4': intrusion_location_map,
+    'INLOC5': intrusion_location_map,
+    'INLOC6': intrusion_location_map,
+    'INLOC7': intrusion_location_map,
+    'INLOC8': intrusion_location_map,
+    'INLOC9': intrusion_location_map,
+    'INLOC10': intrusion_location_map,
+    'INCOMP1': intrusion_component_map,
+    'INCOMP2': intrusion_component_map,
+    'INCOMP3': intrusion_component_map,
+    'INCOMP4': intrusion_component_map,
+    'INCOMP5': intrusion_component_map,
+    'INCOMP6': intrusion_component_map,
+    'INCOMP7': intrusion_component_map,
+    'INCOMP8': intrusion_component_map,
+    'INCOMP9': intrusion_component_map,
+    'INCOMP10': intrusion_component_map,
+    'INMAG1': intrusion_magnitude_map,
+    'INMAG2': intrusion_magnitude_map,
+    'INMAG3': intrusion_magnitude_map,
+    'INMAG4': intrusion_magnitude_map,
+    'INMAG5': intrusion_magnitude_map,
+    'INMAG6': intrusion_magnitude_map,
+    'INMAG7': intrusion_magnitude_map,
+    'INMAG8': intrusion_magnitude_map,
+    'INMAG9': intrusion_magnitude_map,
+    'INMAG10': intrusion_magnitude_map,
+    'CDRIR1': dominant_crush_direction_map,
+    'CDRIR2': dominant_crush_direction_map,
+    'CDRIR3': dominant_crush_direction_map,
+    'CDRIR4': dominant_crush_direction_map,
+    'CDRIR5': dominant_crush_direction_map,
+    'CDRIR6': dominant_crush_direction_map,
+    'CDRIR7': dominant_crush_direction_map,
+    'CDRIR8': dominant_crush_direction_map,
+    'CDRIR9': dominant_crush_direction_map,
+    'CDRIR10': dominant_crush_direction_map,
 }

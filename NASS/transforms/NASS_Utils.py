@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import NASS_Constants
+import numpy as np
 
 
 def rename_and_union_dfs(raw_directory, file_paths, file_ending, desired_columns, col_name_maps):
@@ -39,10 +40,13 @@ def remove_space(df, columns_to_clean):
 
 
 def add_ais_code(df):
-    df['AISCODE'] = (df['REGION90'] + df['STRUTYPE'] + df['STRUSPEC'].str.zfill(2) + df['INJLEVEL'].str.zfill(2) + '.'
-                     + df['AIS'])
+    df['AISCODE'] = np.where(df['YEAR'] < 2010,
+                    (df['REGION90'] + df['STRUTYPE'] + df['STRUSPEC'].str.zfill(2) + df['INJLEVEL'].str.zfill(2) + '.'
+                     + df['AIS']),
+                     (df['REGION08'] + df['STRTYP08'] + df['STRSPC08'].str.zfill(2) + df['INJLVL08'].str.zfill(2) + '.'
+                     + df['AIS08'])
+            )
     return df
-
 
 def clean_sas_files(raw_directory, file_paths, file_ending, columns_to_convert_to_int, output_df_columns):
     output_dataframes = []
@@ -54,7 +58,8 @@ def clean_sas_files(raw_directory, file_paths, file_ending, columns_to_convert_t
 
         # Converts float values to integers if whole numbers, then converts all columns to string type
         for col in columns_to_convert_to_int:
-            output_df[col] = (output_df[col].astype("Int64").astype(str).replace(
+            if col in output_df.columns:
+                output_df[col] = (output_df[col].astype("Int64").astype(str).replace(
                               NASS_Constants.nass_1997_to_2015_null_values, None))
         output_df = output_df.astype(str).replace(NASS_Constants.nass_1997_to_2015_null_values, None)
 

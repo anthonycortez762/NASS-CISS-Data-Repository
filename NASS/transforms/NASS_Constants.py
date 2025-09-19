@@ -15,6 +15,8 @@ nass_1997_to_2015_paths = ['NASS_1997', 'NASS_1998', 'NASS_1999', 'NASS_2000', '
                            'NASS_2011', 'NASS_2012', 'NASS_2013', 'NASS_2014', 'NASS_2015']
 nass_1997_to_2015_injury_file_ending = 'oi.sas7bdat'
 nass_1997_to_2015_occupant_file_ending = 'oa.sas7bdat'
+nass_1997_to_2015_vehicle_file_ending = 'vi.sas7bdat'
+nass_1997_to_2015_gen_vehicle_file_ending = 'gv.sas7bdat'
 nass_1997_to_2015_null_values = ['<NA>', 'None', 'nan']
 
 # Desired injury column names 1988-1996
@@ -72,23 +74,32 @@ nass_1979_to_1981_patient_col_name_maps = {
 }
 
 # Injury Constants for 1997 to 2015
-nass_1997_to_2015_injury_output_columns = ['PSU', 'CASEID', 'VEHNO', 'OCCNO', 'INJNO', 'AIS', 'BODYREG', 'STRUTYPE', 
-                                           'STRUSPEC', 'INJLEVEL', 'ASPECT90', 'LESION', 'SYSORG', 'SOUDAT', 'REGION90', 
-                                           'RATWGT', 'YEAR']
+nass_1997_to_2015_injury_output_columns = ['PSU', 'CASEID', 'VEHNO', 'OCCNO', 'INJNO', 
+                                           'REGION90', 'STRUTYPE', 'STRUSPEC', 'INJLEVEL', 'AIS', 
+                                           'REGION08', 'STRTYP08', 'STRSPC08', 'INJLVL08', 'AIS08',
+                                           'ASPECT90', 'SOUDAT', 'RATWGT', 'YEAR']
 nass_1997_to_2015_injury_columns_to_convert_to_int = ['PSU', 'VEHNO', 'OCCNO', 'INJNO', 'AIS', 'STRUTYPE', 'STRUSPEC',
-                                                      'INJLEVEL', 'ASPECT90', 'SOUDAT', 'REGION90']
+                                                      'INJLEVEL', 'ASPECT90', 'SOUDAT', 'REGION90', 'REGION08', 'STRTYP08', 
+                                                      'STRSPC08', 'INJLVL08', 'AIS08']
 
 
 # Patient Constants for 1997 to 2015
 nass_1997_to_2015_patient_output_columns = ['PSU', 'CASEID', 'OCCNO', 'VEHNO', 'AGE', 'SEX', 'HEIGHT', 'WEIGHT', 'ROLE', 
-                                            'MANUSE', 'BAGAVRPT', 'SEATPOS', 'EJECTION', 'ENTRAP', 'EYEWEAR', 'HOSPSTAY',
-                                            'OCCMOBIL', 'TREATMNT', 'BAGAVAIL', 'BAGDEPLY', 'PARUSE', 'MANAVAIL',
-                                            'MANFAIL', 'POSTURE', 'NATWGT', 'RATWGT', 'STRATIF', 'VERSION', 'DEATH',
-                                            'MEDFACIL', 'CAUSE1', 'CAUSE2', 'CAUSE3', 'INJNUM', 'MAIS', 'ISS', 'INJSEV',
-                                            'WORKDAYS']
+                                            'MANUSE', 'BAGAVRPT', 'SEATPOS', 'EJECTION', 'ENTRAP', 'EYEWEAR' 'HOSPSTAY', 
+                                            'OCCMOBIL' 'TREATMNT', 'BAGAVAIL', 'BAGDEPLY', 'PARUSE', 'MANAVAIL', 'ABELTAVL', 
+                                            'ABELTUSE', 'ABLTPROP', 'MANFAIL', 'MANPROPR', 'ABLTFAIL', 'CURBWGT', 'DVTOTAL', 
+                                            'POSTURE', 'EVENTS', 'PSUWGT', 'NATWGT', 'RATWGT', 'STRATIF', 'VERSION', 'HOSPSTAY', 
+                                            'OCCMOBIL', 'DEATH', 'TREATMNT', 'MEDFACIL', 'CAUSE1', 'CAUSE2', 'CAUSE3', 'INJNUM', 'MAIS', 'ISS', 
+                                            'INJSEV', 'WORKDAYS', 'INLOC1', 'INCOMP1', 'INMAG1', 'CDRIR1', 'INLOC2', 'INCOMP2', 
+                                            'INMAG2', 'CDRIR2', 'INLOC3', 'INCOMP3', 'INMAG3', 'CDRIR3', 'INLOC4', 'INCOMP4', 
+                                            'INMAG4', 'CDRIR4', 'INLOC5', 'INCOMP5', 'INMAG5', 'CDRIR5', 'INLOC6', 'INCOMP6', 
+                                            'INMAG6', 'CDRIR6', 'INLOC7', 'INCOMP7', 'INMAG7', 'CDRIR7', 'INLOC8', 'INCOMP8', 
+                                            'INMAG8', 'CDRIR8', 'INLOC9', 'INCOMP9', 'INMAG9', 'CDRIR9', 'INLOC10', 'INCOMP10', 
+                                            'INMAG10', 'CDRIR10']
 nass_1997_to_2015_patient_columns_to_convert_to_int = ['PSU', 'VEHNO', 'OCCNO', 'AGE', 'SEX', 'HEIGHT', 'WEIGHT',
                                                        'ROLE', 'MANUSE', 'BAGAVRPT', 'SEATPOS', 'EJECTION', 'ENTRAP',
                                                        'EYEWEAR', 'HOSPSTAY', 'OCCMOBIL', 'TREATMNT', 'BAGAVAIL',
                                                        'BAGDEPLY', 'PARUSE', 'MANAVAIL', 'MANFAIL', 'POSTURE',
                                                        'VERSION', 'DEATH', 'MEDFACIL', 'CAUSE1', 'CAUSE2', 'CAUSE3',
-                                                       'INJNUM', 'MAIS', 'ISS', 'INJSEV', 'WORKDAYS']
+                                                       'INJNUM', 'MAIS', 'ISS', 'INJSEV', 'WORKDAYS', 'ABELTAVL', 'ABELTUSE',
+                                                       'ABLTPROP', 'MANPROPR', 'ABLTFAIL']

@@ -17,7 +17,7 @@ injury_output_columns = (injury_base_column_list + ['YEAR'] + injury_additional_
 
 # CISS Patient Constants
 patient_base_column_list = ['CASEID', 'PSU', 'CASENO']
-patient_additional_column_list = ['AGE', 'SEX', 'HEIGHT', 'WEIGHT', 'ROLE', 'PARBELTUSE', 'PARAIRBAG',
+patient_additional_column_list = ['AGE', 'SEX', 'HEIGHT', 'WEIGHT', 'ROLE', 'PARBELTUSE', 'PARAIRBAG', 'BELTUSE',
                                   'SEATLOC', 'ENTRAP', 'EYEWEAR', 'HOSPSTAY', 'MOBILITY', 'MORTALITY', 'TREATMENT']
 patient_join_columns_list = [patient_base_column_list + ['VEHNO', 'OCCNO'], patient_base_column_list + ['VEHNO'],
                              patient_base_column_list]

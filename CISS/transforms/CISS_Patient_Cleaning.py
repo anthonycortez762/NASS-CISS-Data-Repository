@@ -59,4 +59,6 @@ ciss_patient_df = CISS_Utils.pivot_and_join_dfs(ciss_patient_df, ciss_intrusion_
 ciss_patient_df = Global_Utils.clean_column_values(ciss_patient_df, CISS_Constants.ciss_patient_col_specific_value_maps,
                                                    CISS_Constants.ciss_global_value_map)
 
+ciss_patient_df['BINARYBELTUSE'] = ciss_patient_df['BELTUSE']=='Lap and shoulder belt'
+
 ciss_patient_df.to_csv(patient_output_filename, encoding='utf-8', index=False)
