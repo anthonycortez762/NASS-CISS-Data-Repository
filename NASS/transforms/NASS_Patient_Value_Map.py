@@ -494,6 +494,30 @@ nass_patient_col_specific_value_maps = {
                         '99': 'Unknown'},
         }
     ],
+    'CAUSE1': [
+        {
+            'ranges': [
+                {'start': 1988, 'end': 1996},
+            ],
+            'mapping': {'0': 'Not Fatal/No Additional Causes', '96': 'No Specific Injury', '97': 'Other'},
+        }
+    ],
+    'CAUSE2': [
+        {
+            'ranges': [
+                {'start': 1988, 'end': 1996},
+            ],
+            'mapping': {'0': 'Not Fatal/No Additional Causes', '96': 'No Specific Injury', '97': 'Other'},
+        }
+    ],
+    'CAUSE3': [
+        {
+            'ranges': [
+                {'start': 1988, 'end': 1996},
+            ],
+            'mapping': {'0': 'Not Fatal/No Additional Causes', '96': 'No Specific Injury', '97': 'Other'},
+        }
+    ],
     'INLOC1': [intrusion_location_map],
     'INLOC2': [intrusion_location_map],
     'INLOC3': [intrusion_location_map],
