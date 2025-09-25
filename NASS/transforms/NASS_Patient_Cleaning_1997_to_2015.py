@@ -33,8 +33,10 @@ nass_occupant_df_1997_to_2015 = Global_Utils.clean_column_values(nass_occupant_d
 
 # Creates BELTUSE column that is binary - either they were properly using an adult seatbelt or not. 
 # This will align with CISS column for seatbelt use.
-manual = (nass_occupant_df_1997_to_2015['MANUSE']=='Lap and shoulder belt') & (nass_occupant_df_1997_to_2015['MANPROPR']=='Used Properly')
-automatic = (nass_occupant_df_1997_to_2015['ABELTUSE']=='Belt In Use') & (nass_occupant_df_1997_to_2015['ABLTPROP']=='Used Properly')
-nass_occupant_df_1997_to_2015['BINARYBELTUSE'] = manual | automatic
+manual_1997_to_2003 = (nass_occupant_df_1997_to_2015['MANUSE']=='Lap and shoulder belt') & (nass_occupant_df_1997_to_2015['MANPROPR']=='Used Properly') & (nass_occupant_df_1997_to_2015['YEAR']<2003) 
+automatic_1997_to_2003 = (nass_occupant_df_1997_to_2015['ABELTUSE']=='Belt In Use') & (nass_occupant_df_1997_to_2015['ABLTPROP']=='Used Properly') & (nass_occupant_df_1997_to_2015['YEAR']<2003) 
+manual_2003_to_2015 = (nass_occupant_df_1997_to_2015['MANUSE']=='Lap and shoulder belt') & (nass_occupant_df_1997_to_2015['YEAR']>=2003) 
+automatic_2003_to_2015 = (nass_occupant_df_1997_to_2015['ABELTUSE']=='Belt In Use') & (nass_occupant_df_1997_to_2015['YEAR']>=2003) 
+nass_occupant_df_1997_to_2015['BINARYBELTUSE'] = manual_1997_to_2003 | automatic_1997_to_2003 | manual_2003_to_2015 | automatic_2003_to_2015
 
 nass_occupant_df_1997_to_2015.to_csv(nass_patient_output_filename, encoding='utf-8', index=False)
